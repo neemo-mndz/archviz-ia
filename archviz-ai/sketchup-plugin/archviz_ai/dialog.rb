@@ -18,13 +18,18 @@ module ArchVizAI
       @dialog.add_action_callback('retry_engine') { |_context| connect }
       @dialog.add_action_callback('refresh_scene') { |_context| @last_payload = nil; refresh_scene }
       @dialog.add_action_callback('capture_scene') { |_context, settings| capture(settings) }
+      @dialog.add_action_callback('render_scene') { |_context| render_job }
       @dialog.add_action_callback('invalidate_payload') { |_context| @last_payload = nil }
       @dialog.add_action_callback('log_scene') { |_context| log_scene }
+      @dialog.add_action_callback('save_image') { |_context, base64| save_image(base64) }
+      @dialog.add_action_callback('open_image') { |_context, base64| open_image(base64) }
       @dialog.set_on_closed do
+        stop_polling
         @client&.close
         @dialog = nil
         @catalog = nil
         @last_payload = nil
+        @job_id = nil
         @generation = (@generation || 0) + 1
       end
       @dialog.set_file(File.join(__dir__, 'ui', 'index.html'))
@@ -35,7 +40,7 @@ module ArchVizAI
     def emit(event, data)
       return unless @dialog
 
-      json = JSON.generate({ event: event, data: data }).gsub('<', '\\u003c').gsub('>', '\\u003e')
+      json = JSON.generate({ event: event, data: data }).gsub('<', '\u003c').gsub('>', '\u003e')
       @dialog.execute_script("window.ArchVizAI.receive(#{json})")
     end
 
@@ -48,9 +53,11 @@ module ArchVizAI
     def connect
       @generation = (@generation || 0) + 1
       generation = @generation
+      stop_polling
       @client&.close
       @catalog = nil
       @last_payload = nil
+      @job_id = nil
       emit('connecting', {})
       @client = ApiClient.new
       @client.get(:health) do |data, error|
@@ -110,7 +117,6 @@ module ArchVizAI
 
       fields['additionalInstructions'] = notes
       capture = SceneCapture.capture
-      # Exact multipart parts for Phase 3, held in Ruby memory only. No POST exists here.
       @last_payload = {
         image: { bytes: capture[:image], filename: 'scene.png', content_type: 'image/png' },
         fields: fields.merge('origin' => 'sketchup', 'scene' => JSON.generate(capture[:scene]))
@@ -118,6 +124,81 @@ module ArchVizAI
       emit('captured', { scene: capture[:scene], image: "data:image/png;base64,#{Base64.strict_encode64(capture[:image])}", bytes: capture[:image].bytesize })
     rescue StandardError => error
       emit('error', error.message)
+    end
+
+    def render_job
+      raise 'Nenhum payload capturado.' unless @last_payload
+      emit('render_status', { status: 'submitting', message: 'Enviando...' })
+      @client.post_render(@last_payload) do |data, error|
+        next unless @dialog
+        if error
+          emit('render_error', error)
+        else
+          @job_id = data['jobId']
+          start_polling
+        end
+      end
+    rescue StandardError => error
+      emit('render_error', error.message)
+    end
+
+    def start_polling
+      return unless @job_id
+      @polling_fails = 0
+      emit('render_status', { status: 'pending', message: 'Na fila...' })
+      @polling_timer = UI.start_timer(3, true) do
+        check_job_status
+      end
+    end
+
+    def check_job_status
+      @client.get_job_status(@job_id) do |data, error|
+        next unless @dialog
+        if error
+          ArchVizAI.log("Falha temporária no polling: #{error}")
+          @polling_fails ||= 0
+          @polling_fails += 1
+          if @polling_fails > 10
+            stop_polling
+            emit('render_error', 'Falha prolongada ao verificar status do render.')
+          end
+          next
+        end
+
+        @polling_fails = 0
+        status = data['status']
+        if status == 'pending'
+          emit('render_status', { status: 'pending', message: 'Na fila...' })
+        elsif status == 'processing'
+          emit('render_status', { status: 'processing', message: 'Processando render...' })
+        elsif status == 'completed'
+          stop_polling
+          emit('render_status', { status: 'completed', message: 'Render concluído. Baixando resultado...' })
+          download_result
+        elsif status == 'failed'
+          stop_polling
+          emit('render_error', data['error'] || 'Falha ao renderizar.')
+        end
+      end
+    end
+
+    def download_result
+      @client.get_result(@job_id) do |image_bytes, error|
+        next unless @dialog
+        if error
+          emit('render_error', "Erro ao baixar resultado: #{error}")
+        else
+          base64 = Base64.strict_encode64(image_bytes)
+          emit('render_complete', { image: "data:image/png;base64,#{base64}" })
+        end
+      end
+    end
+
+    def stop_polling
+      if @polling_timer
+        UI.stop_timer(@polling_timer)
+        @polling_timer = nil
+      end
     end
 
     def log_scene
@@ -129,6 +210,29 @@ module ArchVizAI
       else
         ArchVizAI.log('scene JSON > 12 KB; inspecione ArchVizAI.controller.last_payload[:fields]["scene"] no Ruby Console. Dump automático omitido.')
       end
+    end
+
+    def save_image(base64_data)
+      path = UI.savepanel('Salvar Render', '', 'render.png')
+      return unless path
+      
+      parts = base64_data.split(',')
+      bytes = Base64.decode64(parts.last)
+      File.binwrite(path, bytes)
+    rescue StandardError => e
+      ArchVizAI.log("Erro ao salvar: #{e.message}")
+    end
+
+    def open_image(base64_data)
+      require 'tempfile'
+      file = Tempfile.new(['render_preview', '.png'])
+      parts = base64_data.split(',')
+      file.binmode
+      file.write(Base64.decode64(parts.last))
+      file.close
+      UI.openURL("file:///#{file.path}")
+    rescue StandardError => e
+      ArchVizAI.log("Erro ao abrir imagem: #{e.message}")
     end
   end
 

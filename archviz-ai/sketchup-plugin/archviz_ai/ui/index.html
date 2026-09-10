@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data: file:; connect-src 'none'; base-uri 'none'; form-action 'none'">
   <title>ArchViz AI</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
@@ -31,11 +31,24 @@
       <p class="muted">A captura prepara os dados. Nenhum render será iniciado nesta etapa.</p>
     </section>
     <p id="message" role="status" aria-live="polite"></p>
+    
     <section id="result" hidden>
-      <h2>Cena capturada com sucesso</h2>
+      <h2>ORIGINAL</h2>
       <img id="preview" alt="Captura da viewport atual do SketchUp">
       <p id="payload-summary"></p>
-      <button id="log" type="button">Registrar JSON no Ruby Console</button>
+      <div class="row">
+        <button id="render" class="primary" type="button">RENDERIZAR</button>
+        <button id="log" type="button">Registrar JSON no Ruby Console</button>
+      </div>
+    </section>
+
+    <section id="render-result" hidden>
+      <h2>RENDER</h2>
+      <img id="render-preview" alt="Render">
+      <div class="row">
+        <button id="open-image" type="button">Abrir imagem</button>
+        <button id="save-image" type="button">Salvar imagem</button>
+      </div>
     </section>
   </main>
 </body>
