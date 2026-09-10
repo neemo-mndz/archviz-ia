@@ -1,57 +1,84 @@
 import { RenderConfig } from '@/types/render';
 
 export function buildRenderPrompt(config: RenderConfig): string {
-  const basePrompt = `This is an image editing task, not an architectural redesign task.
+  let prompt = `<SYSTEM_DIRECTIVE>
+YOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.
+THIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.
+YOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.
+</SYSTEM_DIRECTIVE>\n\n`;
 
-The supplied image is the authoritative source for architecture, geometry, camera, framing and surroundings.
+  // --- GEOMETRY & ARCHITECTURE LOCK ---
+  prompt += `<GEOMETRY_LOCK>\n`;
+  prompt += `The supplied base image is the single authoritative source of truth.\n`;
+  prompt += `PRESERVE EXACTLY:\n`;
+  prompt += `- Camera position, viewpoint, and perspective\n`;
+  prompt += `- Building geometry, volumetry, and facade proportions\n`;
+  prompt += `- Openings, windows, doors, stairs, ramps, railings, roofs\n`;
+  prompt += `- Terrain, level differences, and spatial relationships\n`;
+  prompt += `- Surrounding buildings and urban context\n`;
 
-Preserve the existing building and scene.
+  if (config.fidelity === 'Maximum') {
+    prompt += `\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n`;
+  } else if (config.fidelity === 'High') {
+    prompt += `\nFIDELITY LEVEL: HIGH. Preserve architecture strictly. Minor detailing (e.g., adding subtle window frames) is allowed ONLY if it respects the original bounding boxes.\n`;
+  } else if (config.fidelity === 'Balanced') {
+    prompt += `\nFIDELITY LEVEL: BALANCED. Keep core geometry strictly intact. Minor realism adjustments permitted.\n`;
+  }
+  prompt += `</GEOMETRY_LOCK>\n\n`;
 
-Improve only photographic realism, material response, reflections, shadows, lighting and surface detail.
+  // --- ENVIRONMENT & ENTOURAGE ---
+  prompt += `<ENVIRONMENT_AND_ENTOURAGE>\n`;
+  prompt += `DO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n`;
+  
+  if (config.people !== 'Default') prompt += `- People Density: ${config.people}\n`;
+  if (config.vehicles !== 'Default') prompt += `- Vehicles Density: ${config.vehicles}\n`;
+  if (config.vegetation !== 'Default') prompt += `- Vegetation Density: ${config.vegetation}\n`;
+  prompt += `</ENVIRONMENT_AND_ENTOURAGE>\n\n`;
 
-Do not redesign the architecture.
+  // --- RENDER INTENT ---
+  prompt += `<RENDER_INTENT>\n`;
+  prompt += `Focus purely on achieving a photorealistic architectural visualization.\n`;
+  prompt += `Enhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n`;
 
-Do not change camera or composition.
+  if (config.lighting && config.lighting !== 'Default') {
+    prompt += `- Lighting Condition: ${config.lighting}\n`;
+  }
+  if (config.weather && config.weather !== 'Default') {
+    prompt += `- Weather/Atmosphere: ${config.weather}\n`;
+  }
+  if (config.materialCondition && config.materialCondition !== 'Preserve Original') {
+    prompt += `- Material Condition: ${config.materialCondition}\n`;
+  }
+  prompt += `</RENDER_INTENT>\n\n`;
 
-Do not create a different building.`;
+  // --- NEGATIVE PROMPT ---
+  prompt += `<NEGATIVE_PROMPT>\n`;
+  prompt += `DO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\n`;
+  prompt += `DO NOT redesign the architecture or invent new shapes.\n`;
+  prompt += `DO NOT change the time of day if it conflicts with the Lighting Condition.\n`;
+  prompt += `</NEGATIVE_PROMPT>\n`;
 
-  const configParts = [];
-
-  if (config.lighting !== 'Padrão') {
-    configParts.push(`Lighting: ${config.lighting}.`);
+  // --- OUTPUT FORMAT ---
+  prompt += `<OUTPUT_FORMAT>\n`;
+  if (config.aspectRatio && config.aspectRatio !== 'Original') {
+    prompt += `Requested aspect ratio: ${config.aspectRatio}\n`;
+  }
+  if (config.resolution && config.resolution !== 'Auto') {
+    prompt += `Requested output resolution: ${config.resolution}\n`;
   }
   
-  if (config.fidelity !== 'Estrita') {
-    if (config.fidelity === 'Equilibrada') {
-      configParts.push(`Fidelity: Balanced. Allow minor adjustments for realism while keeping the core geometry.`);
-    } else if (config.fidelity === 'Criativa') {
-      configParts.push(`Fidelity: Creative. Allow more freedom in interpreting materials and subtle architectural details, but keep the main shapes.`);
-    }
+  if (!config.aspectRatio || config.aspectRatio === 'Original') {
+    prompt += `Preserve the exact aspect ratio and framing of the supplied base image.\n`;
+  } else {
+    prompt += `Preserve the architectural subject and camera perspective.\n`;
+    prompt += `If canvas expansion is required to achieve the requested aspect ratio (${config.aspectRatio}), extend only peripheral contextual areas such as sky, ground and surroundings.\n`;
+    prompt += `Do not crop, stretch, deform or redesign the architecture merely to satisfy the requested aspect ratio.\n`;
   }
-
-  if (config.people !== 'Padrão') {
-    configParts.push(`People density: ${config.people}.`);
-  }
-
-  if (config.vehicles !== 'Padrão') {
-    configParts.push(`Vehicle density: ${config.vehicles}.`);
-  }
-
-  if (config.vegetation !== 'Padrão') {
-    configParts.push(`Vegetation density: ${config.vegetation}.`);
-  }
-
-  if (config.materialCondition !== 'Preservar imagem') {
-    configParts.push(`Material condition: ${config.materialCondition}.`);
-  }
+  prompt += `</OUTPUT_FORMAT>\n\n`;
 
   if (config.additionalInstructions) {
-    configParts.push(`\nAdditional Instructions:\n${config.additionalInstructions}`);
+    prompt += `<USER_CUSTOM_INSTRUCTIONS>\n${config.additionalInstructions}\n</USER_CUSTOM_INSTRUCTIONS>\n`;
   }
 
-  const finalPrompt = configParts.length > 0 
-    ? `${basePrompt}\n\nSpecific settings to apply:\n${configParts.join('\n')}`
-    : basePrompt;
-
-  return finalPrompt;
+  return prompt;
 }
