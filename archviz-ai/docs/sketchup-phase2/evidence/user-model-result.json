@@ -1,0 +1,81 @@
+{
+  "unchanged": true,
+  "before": {
+    "camera": {
+      "eye": [
+        10086.369913792878,
+        3326.8341799059363,
+        274.6632892052027
+      ],
+      "target": [
+        7753.299436535578,
+        3326.8336147595614,
+        274.66328918826304
+      ],
+      "up": [
+        -7.260668059490069e-12,
+        -1.758772515284191e-18,
+        1.0
+      ],
+      "perspective": true,
+      "fovDegrees": 40.00000000000012,
+      "aspectRatio": 2.0
+    },
+    "modified": false,
+    "entity_count": 202,
+    "selection": [
+
+    ],
+    "page": "CENA 1 ",
+    "style": "[Architectural Design Style]4"
+  },
+  "after": {
+    "camera": {
+      "eye": [
+        10086.369913792878,
+        3326.8341799059363,
+        274.6632892052027
+      ],
+      "target": [
+        7753.299436535578,
+        3326.8336147595614,
+        274.66328918826304
+      ],
+      "up": [
+        -7.260668059490069e-12,
+        -1.758772515284191e-18,
+        1.0
+      ],
+      "perspective": true,
+      "fovDegrees": 40.00000000000012,
+      "aspectRatio": 2.0
+    },
+    "modified": false,
+    "entity_count": 202,
+    "selection": [
+
+    ],
+    "page": "CENA 1 ",
+    "style": "[Architectural Design Style]4"
+  },
+  "image_bytes": 495426,
+  "viewport": {
+    "width": 1920,
+    "height": 839
+  },
+  "fields": [
+    "lighting",
+    "weather",
+    "fidelity",
+    "people",
+    "vehicles",
+    "vegetation",
+    "materialCondition",
+    "aspectRatio",
+    "resolution",
+    "additionalInstructions",
+    "origin",
+    "scene"
+  ],
+  "mime": "image/png"
+}

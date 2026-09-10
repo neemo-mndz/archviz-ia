@@ -1,0 +1,81 @@
+{
+  "unchanged": true,
+  "before": {
+    "camera": {
+      "eye": [
+        -300.0,
+        -400.0,
+        200.0
+      ],
+      "target": [
+        50.0,
+        50.0,
+        60.0
+      ],
+      "up": [
+        0.1464187729561224,
+        0.1882527080864431,
+        0.9711449226681588
+      ],
+      "perspective": false,
+      "fovDegrees": null,
+      "aspectRatio": 0.0
+    },
+    "modified": true,
+    "entity_count": 2,
+    "selection": [
+
+    ],
+    "page": null,
+    "style": "[Simple Style]"
+  },
+  "after": {
+    "camera": {
+      "eye": [
+        -300.0,
+        -400.0,
+        200.0
+      ],
+      "target": [
+        50.0,
+        50.0,
+        60.0
+      ],
+      "up": [
+        0.1464187729561224,
+        0.1882527080864431,
+        0.9711449226681588
+      ],
+      "perspective": false,
+      "fovDegrees": null,
+      "aspectRatio": 0.0
+    },
+    "modified": true,
+    "entity_count": 2,
+    "selection": [
+
+    ],
+    "page": null,
+    "style": "[Simple Style]"
+  },
+  "image_bytes": 10031,
+  "viewport": {
+    "width": 1920,
+    "height": 839
+  },
+  "fields": [
+    "lighting",
+    "weather",
+    "fidelity",
+    "people",
+    "vehicles",
+    "vegetation",
+    "materialCondition",
+    "aspectRatio",
+    "resolution",
+    "additionalInstructions",
+    "origin",
+    "scene"
+  ],
+  "mime": "image/png"
+}

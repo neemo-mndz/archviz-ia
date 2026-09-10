@@ -1,0 +1,1691 @@
+{
+  "schemaVersion": "1.0",
+  "source": "sketchup",
+  "units": "inch",
+  "viewport": {
+    "width": 1920,
+    "height": 839
+  },
+  "camera": {
+    "eye": [
+      10086.369913792878,
+      3326.8341799059363,
+      274.6632892052027
+    ],
+    "target": [
+      7753.299436535578,
+      3326.8336147595614,
+      274.66328918826304
+    ],
+    "up": [
+      -7.260668059490069e-12,
+      -1.758772515284191e-18,
+      1.0
+    ],
+    "perspective": true,
+    "fovDegrees": 40.00000000000012,
+    "aspectRatio": 2.0
+  },
+  "scene": {
+    "name": "CENA 1 "
+  },
+  "model": {
+    "name": "",
+    "materialCount": 177,
+    "objectCount": 48
+  },
+  "materials": [
+    {
+      "name": "<auto>",
+      "color": "#FFFF00",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>1",
+      "color": "#FF0000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>2",
+      "color": "#FFFFFF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>3",
+      "color": "#CC0000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>4",
+      "color": "#139B48",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>5",
+      "color": "#00FF00",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>7",
+      "color": "#F26722",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Translucent Glass Blue]1",
+      "color": "#000000",
+      "opacity": 0.41000000000000003,
+      "texture": null
+    },
+    {
+      "name": "Metal",
+      "color": "#000000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "515151ff",
+      "color": "#505050",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>9",
+      "color": "#FFFFFF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ACM VERMELHO - BURGUNDY (ALUCOMAXX)",
+      "color": "#66323F",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM VERMELHO ALUCOMAXX BURGUNDY(1).jpg",
+        "width": 78.74015748031496,
+        "height": 60.651202383485845
+      }
+    },
+    {
+      "name": "ACM CINZA#2",
+      "color": "#CCCCCC",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM CINZA.jpg",
+        "width": 47.24409448818898,
+        "height": 23.62204724409449
+      }
+    },
+    {
+      "name": "GRANITO BRANCO ITAUNA1",
+      "color": "#D8D8D8",
+      "opacity": 1.0,
+      "texture": {
+        "name": "branco-itaunas-17-1.jpg",
+        "width": 60.0,
+        "height": 58.560338743824985
+      }
+    },
+    {
+      "name": "[Color M07]1",
+      "color": "#3A3A3A",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Glass_Window_Neutral#1",
+      "color": "#000000",
+      "opacity": 0.1231299757957458,
+      "texture": null
+    },
+    {
+      "name": "Aluminum_Anodized_DarkGray",
+      "color": "#3D3D3D",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Aluminum_Brushed_5cm#1",
+      "color": "#7F7F7F",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Brushed_02.jpg",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "Steel_Brushed_5cm1",
+      "color": "#8E8E8E",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Brushed_03.jpg",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "Steel_Brushed_5cm",
+      "color": "#737D80",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color M08]1",
+      "color": "#1D1D1D",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color L05]",
+      "color": "#757575",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>8",
+      "color": "#939598",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>10",
+      "color": "#FF00BF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Polished Concrete Old]1",
+      "color": "#E5E5E5",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Polished Concrete Old.jpg",
+        "width": 36.0,
+        "height": 36.0
+      }
+    },
+    {
+      "name": "_Graama",
+      "color": "#324517",
+      "opacity": 1.0,
+      "texture": {
+        "name": "5d31e8417821b0722b0fd8f857b6b036.jpg",
+        "width": 196.8503937007874,
+        "height": 196.8503937007874
+      }
+    },
+    {
+      "name": "Laminate_C01_120cm",
+      "color": "#A5816B",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Laminate_C01_Diff.jpg",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "FFFFFFff50 White",
+      "color": "#FFFFFF",
+      "opacity": 0.17700000000000005,
+      "texture": null
+    },
+    {
+      "name": "ags_standard",
+      "color": "#AEB1AC",
+      "opacity": 0.5,
+      "texture": null
+    },
+    {
+      "name": "Asphalt Grey 15-20 100cm",
+      "color": "#8C8883",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Concrete_09_Grainy_albedo_1k.png",
+        "width": 39.37007874015748,
+        "height": 39.37007874015748
+      }
+    },
+    {
+      "name": "Asphalt Black 15-01 100cmb",
+      "color": "#444444",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Road_04_Albedo_1k.png",
+        "width": 236.22046540102642,
+        "height": 236.22046540102642
+      }
+    },
+    {
+      "name": "Pavement Concrete 03 300cm#1",
+      "color": "#9B9A97",
+      "opacity": 1.0,
+      "texture": {
+        "name": "1a7e1df_Diff_4k_srgb.jpg",
+        "width": 137.7952755905512,
+        "height": 137.7952755905512
+      }
+    },
+    {
+      "name": "[Stone Marble]",
+      "color": "#8F8A88",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Stone_Marble.jpg",
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "name": "[Metal_Corrogated_Shiny]2",
+      "color": "#A9A9A9",
+      "opacity": 1.0,
+      "texture": {
+        "name": "[Metal_Corrogated_Shiny]2_extractedTex1921.jpg",
+        "width": 393.7007874015748,
+        "height": 393.7007874015748
+      }
+    },
+    {
+      "name": "Aluminum_Anodized_Clear1",
+      "color": "#B1B1AE",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ouro_bandeira",
+      "color": "#000000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "madeira_bandeira",
+      "color": "#634332",
+      "opacity": 1.0,
+      "texture": {
+        "name": "rustic-wood-texture-5496-rustic-wood-texture.jpg",
+        "width": 1.0236220472440944,
+        "height": 0.5118110236220472
+      }
+    },
+    {
+      "name": "bandeira_brasileira2",
+      "color": "#85C4D9",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Sem-Título-1.jpg",
+        "width": 1.0236220472440944,
+        "height": 0.7161890296707835
+      }
+    },
+    {
+      "name": "bandeira_brasileira",
+      "color": "#7DCEE8",
+      "opacity": 1.0,
+      "texture": {
+        "name": "1200px-Bandeira_do_estado_do_Rio_de_Janeiro.svg.png",
+        "width": 1.1811023622047245,
+        "height": 0.8267716535433072
+      }
+    },
+    {
+      "name": "bandeira_brasileira1",
+      "color": "#4E863C",
+      "opacity": 1.0,
+      "texture": {
+        "name": "BR.jpg",
+        "width": 1.0039370078740157,
+        "height": 1.0039370078740157
+      }
+    },
+    {
+      "name": "Metal1",
+      "color": "#8A8A8A",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "BRASAO DOURADO1",
+      "color": "#CBA360",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>18",
+      "color": "#FD0000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color M00]3",
+      "color": "#FDFDFD",
+      "opacity": 0.8641000062227249,
+      "texture": null
+    },
+    {
+      "name": "<auto>19",
+      "color": "#00FD00",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color A07]3",
+      "color": "#6F2726",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color M00]2",
+      "color": "#FDFDFD",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Glass_Window_Neutral#2",
+      "color": "#BABABA",
+      "opacity": 0.49,
+      "texture": null
+    },
+    {
+      "name": "ACM CINZA#4",
+      "color": "#757575",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM CINZAescuro.jpg",
+        "width": 23.62204724409449,
+        "height": 11.811023622047244
+      }
+    },
+    {
+      "name": "__ENS-PORC-CINZA-FACHADA",
+      "color": "#CCCCCC",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM CINZA(1).jpg",
+        "width": 23.62204724409449,
+        "height": 11.811023622047244
+      }
+    },
+    {
+      "name": "ACM VERMELHO - BURGUNDY (ALUCOMAXX)#1",
+      "color": "#FBFBFB",
+      "opacity": 1.0,
+      "texture": {
+        "name": "BUMP ACM21.jpg",
+        "width": 17.7123678171139,
+        "height": 59.05511811023622
+      }
+    },
+    {
+      "name": "Metal#1",
+      "color": "#898989",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "FUNDO BARRA",
+      "color": "#858C87",
+      "opacity": 1.0,
+      "texture": {
+        "name": "FUNDO BARRA.png",
+        "width": 2994.2399572934746,
+        "height": 806.2992125984252
+      }
+    },
+    {
+      "name": "Concrete_Flooring_H01_2m",
+      "color": "#8A8D8D",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Concrete_H_Diff.jpg",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "PERSIANA",
+      "color": "#CCCCCC",
+      "opacity": 1.0,
+      "texture": {
+        "name": "63803596_1GG.jpg",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "Aluminum_Blurry2",
+      "color": "#8B8B8B",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "plastico cinza",
+      "color": "#808080",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Stone_Brushed_Khaki]",
+      "color": "#EAE4C6",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Stone_Brushed_Khaki.jpg",
+        "width": 24.0,
+        "height": 24.0
+      }
+    },
+    {
+      "name": "[Granite Light Gray]",
+      "color": "#959490",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Granite 02.jpg",
+        "width": 12.0,
+        "height": 12.0
+      }
+    },
+    {
+      "name": "Concrete_Flooring_I01_2m",
+      "color": "#ADAEAD",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Concrete_I_Diff.jpg",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "Concreto da calcada",
+      "color": "#AEB2B1",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Concrete_007.jpg",
+        "width": 39.37007874015748,
+        "height": 39.37007874015748
+      }
+    },
+    {
+      "name": "1#1 material",
+      "color": "#EBEBEB",
+      "opacity": 1.0,
+      "texture": {
+        "name": "V-Ray Multi Material.png",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "1#2 material",
+      "color": "#EBEBEB",
+      "opacity": 1.0,
+      "texture": {
+        "name": "V-Ray Multi Material.png",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "brake caliper",
+      "color": "#4C4C4C",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "chrome2",
+      "color": "#B1B1B1",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "tyre",
+      "color": "#373737",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "black plastic matt",
+      "color": "#0C0C0C",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "brake disc",
+      "color": "#7F7F7F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "rims 2",
+      "color": "#000000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "aluminium",
+      "color": "#B1B1B1",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "glass window2",
+      "color": "#1E2725",
+      "opacity": 0.5544999957084656,
+      "texture": null
+    },
+    {
+      "name": "black plastic gloss",
+      "color": "#000000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "chrome red",
+      "color": "#990000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "light",
+      "color": "#A5A5A5",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "light red led",
+      "color": "#C10000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "light red reflect",
+      "color": "#CC0000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "light2",
+      "color": "#FF7F00",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "body color cinza",
+      "color": "#929BA6",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "glass lamp",
+      "color": "#878787",
+      "opacity": 0.19999999999999996,
+      "texture": null
+    },
+    {
+      "name": "glass lamp rear",
+      "color": "#B20000",
+      "opacity": 0.6,
+      "texture": null
+    },
+    {
+      "name": "glass led",
+      "color": "#CCCCCC",
+      "opacity": 0.5,
+      "texture": null
+    },
+    {
+      "name": "glass lamp 2",
+      "color": "#191919",
+      "opacity": 0.6,
+      "texture": null
+    },
+    {
+      "name": "interior 1",
+      "color": "#060606",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "interior 3 roof",
+      "color": "#333332",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "interior 2",
+      "color": "#151619",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "logo blue",
+      "color": "#003F7F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "logo red",
+      "color": "#990000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "black matt1",
+      "color": "#191919",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "chrome red1",
+      "color": "#4C0000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "light red reflector 2",
+      "color": "#990000",
+      "opacity": 1.0,
+      "texture": {
+        "name": "185_mosaico aluminium metal plate texture-seamless.jpg",
+        "width": 5.905511811023622,
+        "height": 5.672120326276581
+      }
+    },
+    {
+      "name": "light red 3",
+      "color": "#B20000",
+      "opacity": 1.0,
+      "texture": {
+        "name": "73_iron corrugated metal texture-seamless2.jpg",
+        "width": 4.922834645669292,
+        "height": 4.922834645669292
+      }
+    },
+    {
+      "name": "light red 2",
+      "color": "#CB0000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "light signal",
+      "color": "#7F7F7F",
+      "opacity": 1.0,
+      "texture": {
+        "name": "73_iron corrugated metal texture-seamless.jpg",
+        "width": 19.68503937007874,
+        "height": 16.409448818897637
+      }
+    },
+    {
+      "name": "light orange",
+      "color": "#C1470A",
+      "opacity": 1.0,
+      "texture": {
+        "name": "185_mosaico aluminium metal plate texture-seamless.jpg",
+        "width": 3.937007874015748,
+        "height": 3.0251308406808435
+      }
+    },
+    {
+      "name": "light foglamp",
+      "color": "#7F7F7F",
+      "opacity": 0.9,
+      "texture": {
+        "name": "185_mosaico aluminium metal plate texture-seamless.jpg",
+        "width": 7.874015748031496,
+        "height": 6.299212598425197
+      }
+    },
+    {
+      "name": "light front",
+      "color": "#999999",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "glass lamp front",
+      "color": "#000000",
+      "opacity": 0.09999999999999998,
+      "texture": null
+    },
+    {
+      "name": "glass lamp rear1",
+      "color": "#000000",
+      "opacity": 0.25,
+      "texture": null
+    },
+    {
+      "name": "glass projector",
+      "color": "#BFBFBF",
+      "opacity": 0.5,
+      "texture": null
+    },
+    {
+      "name": "grille",
+      "color": "#3F3F3F",
+      "opacity": 1.0,
+      "texture": {
+        "name": "73_iron corrugated metal texture-seamless.jpg",
+        "width": 7.874015748031496,
+        "height": 6.563779527559055
+      }
+    },
+    {
+      "name": "rims 1",
+      "color": "#B2B2B2",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "body color vermelho",
+      "color": "#9C1E1E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "body color 2",
+      "color": "#53110E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "interior carpet",
+      "color": "#2B2B2B",
+      "opacity": 1.0,
+      "texture": {
+        "name": "49_grey velvet fabric texture-seamlessMID.jpg",
+        "width": 9.84251968503937,
+        "height": 9.84251968503937
+      }
+    },
+    {
+      "name": "interior seat smooth leather",
+      "color": "#272727",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "interior upper 1",
+      "color": "#272727",
+      "opacity": 1.0,
+      "texture": {
+        "name": "95_leather texture-seamless.jpg",
+        "width": 9.84251968503937,
+        "height": 9.84251968503937
+      }
+    },
+    {
+      "name": "interior roof 1",
+      "color": "#292B2A",
+      "opacity": 1.0,
+      "texture": {
+        "name": "46_cotton wallpaper texture-seamless.jpg",
+        "width": 9.84251968503937,
+        "height": 9.84251968503937
+      }
+    },
+    {
+      "name": "body color PRETO",
+      "color": "#242427",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "TexturesCom_FloorHerringbone0059_1_seamless_S",
+      "color": "#888888",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Pavement_01_Albedo_1k.png",
+        "width": 39.37007874015748,
+        "height": 39.37007874015748
+      }
+    },
+    {
+      "name": "<auto>6",
+      "color": "#00FFFF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>11",
+      "color": "#808080",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "chrome_shiny",
+      "color": "#1B1B1B",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Metal_Corrogated_Shiny2",
+      "color": "#C1C1C1",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Metal_Corrogated_Shiny_extractedTex3271.jpg",
+        "width": 4.0,
+        "height": 4.0
+      }
+    },
+    {
+      "name": "Glass",
+      "color": "#989898",
+      "opacity": 0.09999999999999998,
+      "texture": null
+    },
+    {
+      "name": "_Color K08_",
+      "color": "#757575",
+      "opacity": 1.0,
+      "texture": {
+        "name": "_Color K08_.jpg",
+        "width": 196.85039370078812,
+        "height": 59.09359049988366
+      }
+    },
+    {
+      "name": "[0131_Silver]2",
+      "color": "#C0C0C0",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color B04]",
+      "color": "#DE643F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Color D07]",
+      "color": "#B3B3AF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "CarPaint_Matte_Gray#1",
+      "color": "#6E6E6E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[0128_White]",
+      "color": "#FDFDFD",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "PAREDE",
+      "color": "#F3F3F3",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ACM VERMELHO#3",
+      "color": "#631C22",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM BURGUNDY.JPG",
+        "width": 196.8503937007882,
+        "height": 100.73564748068505
+      }
+    },
+    {
+      "name": "CarPaint_Matte_Gray",
+      "color": "#6E6E6E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ACM CINZA",
+      "color": "#CCCCCC",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM CINZA.jpg",
+        "width": 196.85039370140112,
+        "height": 59.01667076790053
+      }
+    },
+    {
+      "name": "[0134_DimGray]",
+      "color": "#686868",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Metal_Painted_Red_5cm",
+      "color": "#FDF9F9",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Curtain_A02_20cm",
+      "color": "#A7B6AF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Material69",
+      "color": "#B7B7B7",
+      "opacity": 0.8,
+      "texture": {
+        "name": "Translucent_Resin_Crush_Gray.jpg",
+        "width": 12.0,
+        "height": 12.0
+      }
+    },
+    {
+      "name": "[Translucent_Glass_Safety]4",
+      "color": "#424BFF",
+      "opacity": 0.5,
+      "texture": {
+        "name": "Translucent_Glass_Saftey.jpg",
+        "width": 6.0,
+        "height": 6.0
+      }
+    },
+    {
+      "name": "[Color M00]1",
+      "color": "#FFFFFF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "[Blacktop Old 01]",
+      "color": "#84888B",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Blacktop Old 01.jpg",
+        "width": 24.0,
+        "height": 24.0
+      }
+    },
+    {
+      "name": "black plastic",
+      "color": "#4C4C4C",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>24",
+      "color": "#000000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>12",
+      "color": "#404040",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>14",
+      "color": "#DADADA",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>13",
+      "color": "#252525",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>15",
+      "color": "#3E3E3E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>16",
+      "color": "#2B2B2B",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>33",
+      "color": "#000000",
+      "opacity": 0.21176469999999992,
+      "texture": null
+    },
+    {
+      "name": "<auto>68",
+      "color": "#FDFAA7",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>69",
+      "color": "#5E5E5E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>70",
+      "color": "#7EFDFD",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>71",
+      "color": "#0F0F0F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>72",
+      "color": "#C6C6C6",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>73",
+      "color": "#9A9A9A",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>74",
+      "color": "#0F9155",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Chrome",
+      "color": "#8C8C8C",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Chrome1",
+      "color": "#B3B3B3",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Material26",
+      "color": "#808080",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "2",
+      "color": "#595A5A",
+      "opacity": 0.5780194256756757,
+      "texture": null
+    },
+    {
+      "name": "Material7",
+      "color": "#CCC4CE",
+      "opacity": 1.0,
+      "texture": {
+        "name": "V-Ray Texture Helper.png",
+        "width": 10.0,
+        "height": 10.0
+      }
+    },
+    {
+      "name": "rims black",
+      "color": "#303030",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Wheels",
+      "color": "#E2E2E2",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "shiny black",
+      "color": "#191919",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "solid paint",
+      "color": "#000000",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Standart G1",
+      "color": "#7D1A02",
+      "opacity": 0.9049831081081081,
+      "texture": null
+    },
+    {
+      "name": "1 copy",
+      "color": "#546C6C",
+      "opacity": 0.65,
+      "texture": null
+    },
+    {
+      "name": "WHITE GLASS",
+      "color": "#E4E4E4",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Material8",
+      "color": "#959595",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Material.2",
+      "color": "#373736",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Glass _Headlights",
+      "color": "#FEFEFE",
+      "opacity": 0.5,
+      "texture": null
+    },
+    {
+      "name": "solid paint1",
+      "color": "#93510E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "red back light",
+      "color": "#920002",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "body color vermelho ranger",
+      "color": "#7B0606",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>17",
+      "color": "#3D3D3D",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Material.1",
+      "color": "#5E6C61",
+      "opacity": 1.0,
+      "texture": {
+        "name": "glTF_Embedded_Texture3.png",
+        "width": 1000.0,
+        "height": 1000.0
+      }
+    },
+    {
+      "name": "Grass B 200cm",
+      "color": "#6A7343",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Grass_04_albedo_1k.png",
+        "width": 196.850390767488,
+        "height": 196.850390767488
+      }
+    },
+    {
+      "name": "<auto>20",
+      "color": "#5B5B5B",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>21",
+      "color": "#0000FF",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "<auto>22",
+      "color": "#848484",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ACM VERMELHO - BURGUNDY (ALUCOMAXX)1",
+      "color": "#65323F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ACM VERMELHO - BURGUNDY (ALUCOMAXX)1#1",
+      "color": "#65323F",
+      "opacity": 1.0,
+      "texture": {
+        "name": "ACM VERMELHO - BURGUNDY (ALUCOMAXX)1 - Copia.png",
+        "width": 196.8503937007874,
+        "height": 59.09358834935913
+      }
+    },
+    {
+      "name": "Material",
+      "color": "#FF9646",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Stucco White 300cm",
+      "color": "#E8E8E8",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Stucco White 300cm#1",
+      "color": "#E8E8E8",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "_#Vidro Prédio Fundos",
+      "color": "#546C6C",
+      "opacity": 0.4,
+      "texture": null
+    },
+    {
+      "name": "Concrete 15",
+      "color": "#8E8C86",
+      "opacity": 1.0,
+      "texture": {
+        "name": "Concrete_15_Albedo_2k.png",
+        "width": 78.74015748031496,
+        "height": 78.74015748031496
+      }
+    }
+  ],
+  "objects": [
+    {
+      "name": "",
+      "definitionName": "base janelas barra.dwg",
+      "type": "component",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vaga 60+",
+      "type": "component",
+      "material": "<auto>2",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "A$C90c660da",
+      "type": "component",
+      "material": "<auto>7",
+      "tag": "MP-ARQ-MOB-EXP",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vaga 60+",
+      "type": "component",
+      "material": "<auto>2",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vaga 60+",
+      "type": "component",
+      "material": "<auto>2",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "A$Cca212997",
+      "type": "component",
+      "material": "<auto>2",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$vagas 4 - sombreador",
+      "type": "component",
+      "material": "<auto>1",
+      "tag": "xref_Columbade$0$MP-PIS-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "A$C95a3aefd",
+      "type": "component",
+      "material": "<auto>7",
+      "tag": "MP-ARQ-MOB-EXP",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "xref_Columbade$0$sombreador 4 vagas",
+      "type": "component",
+      "material": "<auto>",
+      "tag": "xref_Columbade$0$MP-VISTA2-ARQ",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#34",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#75",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#74",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#37",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#79",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "2022+Honda+Civic+eHEV+RS",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "2024+Honda+CR-V+eHEV+RS",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "2024+Honda+CR-V+eHEV+RS#1",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "2024+Honda+CR-V+eHEV+RS#1",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "2022+Honda+Civic+eHEV+RS",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Monroe Com Textura sket3.glb",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Monroe Com Textura sket3.glb",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#33",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#144",
+      "type": "group",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Shania Walking 004",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Rufus Walking 003",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Ralf Walking 003",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Lin Walking 002",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Javonte Walking 002",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Jackson Walking 002",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Graham Walking 002",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Ben 002 Sitting in Wheelchair",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Group#451",
+      "type": "group",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "A$C9520837e",
+      "type": "component",
+      "material": "<auto>2",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Car 059",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Dog Sitting 016",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    },
+    {
+      "name": "",
+      "definitionName": "Dog Sitting 013",
+      "type": "component",
+      "material": "",
+      "tag": "_carros",
+      "hidden": false
+    }
+  ]
+}

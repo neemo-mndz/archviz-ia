@@ -1,0 +1,13 @@
+{
+  "title": "ArchViz AI",
+  "health": "● Engine online",
+  "detail": "",
+  "scene": "CENA 1 ",
+  "viewport": "1920 × 839",
+  "selects": 9,
+  "captureDisabled": false,
+  "message": "Cena capturada com sucesso.",
+  "previewWidth": 1920,
+  "previewHeight": 839,
+  "payloadSummary": "Payload pronto para renderização. Imagem: 1920 × 839. Cena: CENA 1 . Materiais: 177. Objetos: 48. Origin: sketchup."
+}

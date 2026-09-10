@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ArchViz AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header><h1>ARCHVIZ <span>AI</span></h1><span class="badge">Captura de cena</span></header>
+  <main>
+    <section aria-label="Engine">
+      <div class="row"><h2>ENGINE</h2><button id="retry" type="button">Tentar novamente</button></div>
+      <p id="health" role="status">Conectando ao ArchViz Engine…</p>
+      <p id="connection-detail" class="muted"></p>
+    </section>
+    <section>
+      <div class="row"><h2>CENA ATUAL</h2><button id="refresh" type="button">Atualizar cena</button></div>
+      <h3 id="scene-name">Vista atual</h3>
+      <dl><div><dt>Viewport</dt><dd id="viewport">—</dd></div><div><dt>Materiais</dt><dd id="materials">—</dd></div><div><dt>Grupos/componentes</dt><dd id="objects">—</dd></div></dl>
+      <p id="partial" class="muted"></p>
+    </section>
+    <section>
+      <h2>CONFIGURAÇÕES DE RENDER</h2>
+      <fieldset id="settings" disabled><div id="options" class="grid"></div>
+        <label class="notes">OBSERVAÇÕES<textarea id="notes" maxlength="4000" rows="3" placeholder="Instruções adicionais para o futuro render"></textarea></label>
+      </fieldset>
+      <button id="capture" class="primary" type="button" disabled>CAPTURAR CENA</button>
+      <p class="muted">A captura prepara os dados. Nenhum render será iniciado nesta etapa.</p>
+    </section>
+    <p id="message" role="status" aria-live="polite"></p>
+    <section id="result" hidden>
+      <h2>Cena capturada com sucesso</h2>
+      <img id="preview" alt="Captura da viewport atual do SketchUp">
+      <p id="payload-summary"></p>
+      <button id="log" type="button">Registrar JSON no Ruby Console</button>
+    </section>
+  </main>
+</body>
+</html>

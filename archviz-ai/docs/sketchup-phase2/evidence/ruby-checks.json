@@ -1,0 +1,21 @@
+{
+  "passed": 16,
+  "checks": [
+    "all Ruby files compile",
+    "loopback http://127.0.0.1:3000",
+    "loopback http://localhost:3001",
+    "loopback http://[::1]:3000",
+    "reject https://localhost:3000",
+    "reject http://example.com",
+    "reject http://localhost.evil.test",
+    "reject http://127.0.0.2",
+    "reject http://user@localhost",
+    "reject http://localhost/jobs",
+    "reject http://localhost/?x=1",
+    "reject file:///etc/passwd",
+    "Unicode names respect backend UTF-16 limit",
+    "only diagnostic routes available",
+    "opening twice reuses same HtmlDialog",
+    "catalog from engine has nine option lists"
+  ]
+}

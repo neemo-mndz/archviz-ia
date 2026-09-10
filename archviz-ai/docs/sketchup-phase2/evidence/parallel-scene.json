@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "1.0",
+  "source": "sketchup",
+  "units": "inch",
+  "viewport": {
+    "width": 1920,
+    "height": 839
+  },
+  "camera": {
+    "eye": [
+      -300.0,
+      -400.0,
+      200.0
+    ],
+    "target": [
+      50.0,
+      50.0,
+      60.0
+    ],
+    "up": [
+      0.1464187729561224,
+      0.1882527080864431,
+      0.9711449226681588
+    ],
+    "perspective": false,
+    "fovDegrees": null,
+    "aspectRatio": 0.0
+  },
+  "scene": {
+    "name": null
+  },
+  "model": {
+    "name": "",
+    "materialCount": 22,
+    "objectCount": 2
+  },
+  "materials": [
+    {
+      "name": "Sree_Complexion_2",
+      "color": "#A5755D",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Complexion_3",
+      "color": "#775443",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Laptop_1",
+      "color": "#929BA0",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Pearls_2",
+      "color": "#C6C6C6",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Dress_1",
+      "color": "#1A2133",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Laptop_2",
+      "color": "#828A8E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Complexion_1",
+      "color": "#B5856E",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Hair",
+      "color": "#0F0F0F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Dress_4",
+      "color": "#111723",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Nails_4",
+      "color": "#B59D92",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Dress_3",
+      "color": "#19253D",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Dress_2",
+      "color": "#182135",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Pearls_1",
+      "color": "#FCFCFC",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Watch_2",
+      "color": "#2B2B2B",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Watch_3",
+      "color": "#353535",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Watch_1",
+      "color": "#0F0F0F",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Laptop_3",
+      "color": "#C1CDD3",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Shoes_1",
+      "color": "#171D2B",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Shoes_2",
+      "color": "#30333A",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Shoes_3",
+      "color": "#434751",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "Sree_Shoes_4",
+      "color": "#111621",
+      "opacity": 1.0,
+      "texture": null
+    },
+    {
+      "name": "ACM vermelho",
+      "color": "#B41E24",
+      "opacity": 1.0,
+      "texture": null
+    }
+  ],
+  "objects": [
+    {
+      "name": "",
+      "definitionName": "Sree",
+      "type": "component",
+      "material": "",
+      "tag": "Layer0",
+      "hidden": false
+    },
+    {
+      "name": "FACHADA_ACM",
+      "definitionName": "Grupo1",
+      "type": "group",
+      "material": "ACM vermelho",
+      "tag": "Layer0",
+      "hidden": false
+    }
+  ]
+}
