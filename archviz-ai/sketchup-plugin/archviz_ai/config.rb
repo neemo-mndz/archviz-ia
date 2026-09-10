@@ -10,7 +10,18 @@ module ArchVizAI
     MAX_PIXELS = 16_000_000
 
     def self.engine_url
-      validate_url(Sketchup.read_default(PREF_KEY, 'engine_url', DEFAULT_URL))
+      url = Sketchup.read_default(PREF_KEY, 'engine_url', DEFAULT_URL)
+      if url == 'http://127.0.0.1:3001'
+        url = DEFAULT_URL
+        Sketchup.write_default(PREF_KEY, 'engine_url', url)
+      end
+      validate_url(url)
+    end
+
+    # Explicit reset also replaces a URL persisted by development sessions.
+    def self.reset_engine_url!
+      Sketchup.write_default(PREF_KEY, 'engine_url', DEFAULT_URL)
+      engine_url
     end
 
     def self.validate_url(value)

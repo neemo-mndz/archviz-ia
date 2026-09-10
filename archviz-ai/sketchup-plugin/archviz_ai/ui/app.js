@@ -20,20 +20,20 @@
 
   function invalidate() {
     result.hidden = true;
-    render-result.hidden = true;
+    $('render-result').hidden = true;
     preview.removeAttribute('src');
-    render-preview.removeAttribute('src');
+    $('render-preview').removeAttribute('src');
     message.textContent = '';
     sketchup.invalidate_payload();
   }
 
   function scene(data) {
-    scene-name.textContent = data.scene.name || 'Vista atual';
-    viewport.textContent = ${data.viewport.width} × ;
+    $('scene-name').textContent = data.scene.name || 'Vista atual';
+    viewport.textContent = `${data.viewport.width} × ${data.viewport.height}`;
     materials.textContent = data.model.materialCount;
     objects.textContent = data.model.objectCount;
     partial.textContent = (data.materials.length < data.model.materialCount || data.objects.length < data.model.objectCount)
-      ? Resumo limitado a  materiais e  objetos de primeiro nível. : '';
+      ? `Resumo limitado a ${data.materials.length} materiais e ${data.objects.length} objetos de primeiro nível.` : '';
   }
 
   window.ArchVizAI = {
@@ -41,20 +41,20 @@
       if (event === 'connecting') {
         online = false; catalog = null;
         health.textContent = 'Conectando ao ArchViz Engine…';
-        connection-detail.textContent = '';
+        $('connection-detail').textContent = '';
         invalidate();
       } else if (event === 'health') {
         online = data.online;
         health.textContent = online ? '● Engine online' : '● ArchViz Engine offline';
         health.className = online ? 'online' : 'offline';
-        if (!online) connection-detail.textContent = data.error || 'Inicie o engine e tente novamente.';
+        if (!online) $('connection-detail').textContent = data.error || 'Inicie o engine e tente novamente.';
       } else if (event === 'catalog_error') {
         catalog = null;
-        connection-detail.textContent = Catálogo indisponível: ;
+        $('connection-detail').textContent = `Catálogo indisponível: ${data}`;
       } else if (event === 'catalog') {
         const keys = Object.keys(data.options);
         if (keys.length !== Object.keys(labels).length || keys.some(key => !Object.hasOwn(labels, key))) {
-          connection-detail.textContent = 'Catálogo incompatível com esta versão da extensão.';
+          $('connection-detail').textContent = 'Catálogo incompatível com esta versão da extensão.';
           catalog = null; enable(); return;
         }
         const previous = {};
@@ -79,9 +79,9 @@
         busy = false; scene(data.scene);
         preview.src = data.image;
         result.hidden = false;
-        render-result.hidden = true;
+        $('render-result').hidden = true;
         const summary = data.scene;
-        payload-summary.textContent = Payload pronto para renderização. Imagem:  × . Cena: . Materiais: . Objetos: . Origin: sketchup.;
+        $('payload-summary').textContent = `Payload pronto para renderização. Imagem: ${summary.viewport.width} × ${summary.viewport.height}. Cena: ${summary.model.entityCount}. Materiais: ${summary.model.materialCount}. Objetos: ${summary.model.objectCount}. Origin: sketchup.`;
         message.textContent = 'Cena capturada com sucesso.';
       } else if (event === 'error') {
         busy = false; message.textContent = data;
@@ -93,11 +93,11 @@
       } else if (event === 'render_complete') {
         busy = false;
         message.textContent = 'Renderização concluída.';
-        render-preview.src = data.image;
+        $('render-preview').src = data.image;
         lastBase64Render = data.image;
-        render-result.hidden = false;
+        $('render-result').hidden = false;
         // Scroll para o resultado
-        render-result.scrollIntoView({ behavior: 'smooth' });
+        $('render-result').scrollIntoView({ behavior: 'smooth' });
       }
       enable();
     }
@@ -122,11 +122,11 @@
     sketchup.render_scene();
   });
 
-  save-image.addEventListener('click', () => {
+  $('save-image').addEventListener('click', () => {
     if (lastBase64Render) sketchup.save_image(lastBase64Render);
   });
 
-  open-image.addEventListener('click', () => {
+  $('open-image').addEventListener('click', () => {
     if (lastBase64Render) sketchup.open_image(lastBase64Render);
   });
 
