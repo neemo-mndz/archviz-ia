@@ -12,33 +12,45 @@ module ArchVizAI
     end
 
     def get(kind, &callback)
+      ArchVizAI.log("HTTP: GET #{ROUTES.fetch(kind)} START")
       route = ROUTES.fetch(kind)
       request = Sketchup::Http::Request.new(@url + route, Sketchup::Http::GET)
+      ArchVizAI.log("HTTP: request object_id=#{request.object_id}")
       entry = { request: request }
       @requests[request.object_id] = entry
       finish = lambda do |data, error|
+        ArchVizAI.log("HTTP: callback received")
         next unless @requests.delete(request.object_id)
         UI.stop_timer(entry[:timer]) if entry[:timer]
+        ArchVizAI.log("HTTP: finish success") if data
         callback.call(data, error)
       end
       entry[:timer] = UI.start_timer(10, false) do
         request.cancel
+        ArchVizAI.log("HTTP: timer expired")
         finish.call(nil, 'ArchViz Engine offline: tempo de conexão excedido.')
       end
       started = request.start do |_req, response|
         begin
+          ArchVizAI.log("HTTP: response block start")
           raise 'ArchViz Engine offline ou resposta indisponível.' unless response
+          ArchVizAI.log("HTTP: status=#{response.status_code}")
           raise "Engine retornou HTTP #{response.status_code}." unless response.status_code == 200
+          ArchVizAI.log("HTTP: body_bytes=#{response.body.bytesize}")
           raise 'Resposta do engine excede 1 MiB.' if response.body.bytesize > Config::MAX_SCENE_BYTES
           data = JSON.parse(response.body.dup.force_encoding('UTF-8'))
+          ArchVizAI.log("HTTP: JSON parsed successfully")
           raise 'Resposta inválida do engine.' unless data.is_a?(Hash) && data['success'] == true
           finish.call(data, nil)
         rescue StandardError => error
+          ArchVizAI.log("HTTP ERROR\nroute=#{route}\nclass=#{error.class}\nmessage=#{error.message}\nbacktrace=\n#{error.backtrace.first(10).join("\n")}")
           finish.call(nil, error.message)
         end
       end
+      ArchVizAI.log("HTTP: request.start returned=#{started}")
       finish.call(nil, 'Não foi possível iniciar a conexão com o engine.') unless started
     rescue StandardError => error
+      ArchVizAI.log("HTTP ERROR\nroute=#{route}\nclass=#{error.class}\nmessage=#{error.message}\nbacktrace=\n#{error.backtrace.first(10).join("\n")}")
       if defined?(finish) && finish
         finish.call(nil, error.message)
       else
@@ -48,17 +60,33 @@ module ArchVizAI
 
     def post_render(payload, &callback)
       boundary = "----RubyMultipartClient#{rand(1000000)}"
-      body = []
+      body = String.new(encoding: Encoding::BINARY)
+      
       payload[:fields].each do |k, v|
-        body << "--#{boundary}\r\nContent-Disposition: form-data; name=\"#{k}\"\r\n\r\n#{v}\r\n"
+        body << "--#{boundary}\r\n".b
+        body << "Content-Disposition: form-data; name=\"#{k}\"\r\n\r\n".b
+        text = v.to_s.encode(Encoding::UTF_8, invalid: :replace, undef: :replace)
+        body << text.b
+        body << "\r\n".b
       end
+      
       img = payload[:image]
-      body << "--#{boundary}\r\nContent-Disposition: form-data; name=\"image\"; filename=\"#{img[:filename]}\"\r\nContent-Type: #{img[:content_type]}\r\n\r\n#{img[:bytes]}\r\n"
-      body << "--#{boundary}--\r\n"
+      body << "--#{boundary}\r\n".b
+      body << "Content-Disposition: form-data; name=\"image\"; filename=\"#{img[:filename]}\"\r\n".b
+      body << "Content-Type: #{img[:content_type]}\r\n\r\n".b
+      
+      ArchVizAI.log("multipart encoding=#{body.encoding}")
+      ArchVizAI.log("multipart bytes=#{body.bytesize}")
+      ArchVizAI.log("image encoding=#{img[:bytes].encoding}")
+      ArchVizAI.log("image bytes=#{img[:bytes].bytesize}")
+      
+      body << img[:bytes].b
+      body << "\r\n".b
+      body << "--#{boundary}--\r\n".b
 
       request = Sketchup::Http::Request.new(@url + '/api/render', Sketchup::Http::POST)
       request.headers = { 'Content-Type' => "multipart/form-data; boundary=#{boundary}" }
-      request.body = body.join
+      request.body = body
       
       entry = { request: request }
       @requests[request.object_id] = entry
