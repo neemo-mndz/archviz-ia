@@ -1,6 +1,8 @@
 import { RenderConfig } from '@/types/render';
+import type { SketchUpScene } from '@/types/scene';
+import { buildScenePromptContext } from '@/lib/scene-prompt-context';
 
-export function buildRenderPrompt(config: RenderConfig): string {
+export function buildRenderPrompt(config: RenderConfig, scene?: SketchUpScene): string {
   let prompt = `<SYSTEM_DIRECTIVE>
 YOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.
 THIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.
@@ -80,5 +82,5 @@ YOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHIT
     prompt += `<USER_CUSTOM_INSTRUCTIONS>\n${config.additionalInstructions}\n</USER_CUSTOM_INSTRUCTIONS>\n`;
   }
 
-  return prompt;
+  return scene ? prompt + '\n' + buildScenePromptContext(scene) : prompt;
 }

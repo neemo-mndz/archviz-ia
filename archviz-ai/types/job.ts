@@ -1,4 +1,5 @@
 import { RenderConfig } from './render';
+import type { RenderOrigin } from './scene';
 
 export type JobStatus = 'pending' | 'processing' | 'completed' | 'failed';
 
@@ -12,6 +13,8 @@ export interface Job {
   durationMs?: number;
   totalDurationMs?: number;
   source: string; // usually 'base.png'
+  origin?: RenderOrigin; // absent on legacy jobs means web
+  sceneFile?: 'scene.json';
   output: string; // usually 'render.png'
   settings: RenderConfig;
   error?: string;

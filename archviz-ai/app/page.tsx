@@ -6,6 +6,7 @@ import RenderSettings from '@/components/RenderSettings';
 import RenderResult from '@/components/RenderResult';
 import { RenderConfig, RenderResponse } from '@/types/render';
 import { Job } from '@/types/job';
+import { DEFAULT_RENDER_CONFIG } from '@/lib/render-options';
 
 type AppState = 'idle' | 'preparing' | 'pending' | 'processing' | 'success' | 'error';
 
@@ -16,18 +17,7 @@ export default function Home() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [originalImageUrl, setOriginalImageUrl] = useState<string | null>(null);
   
-  const [config, setConfig] = useState<RenderConfig>({
-    lighting: 'Default',
-    weather: 'Default',
-    fidelity: 'Maximum',
-    people: 'Default',
-    vehicles: 'Default',
-    vegetation: 'Default',
-    materialCondition: 'Preserve Original',
-    aspectRatio: 'Original',
-    resolution: 'Auto',
-    additionalInstructions: ''
-  });
+  const [config, setConfig] = useState<RenderConfig>({ ...DEFAULT_RENDER_CONFIG });
 
   const [result, setResult] = useState<RenderResponse | null>(null);
   const [activeJobId, setActiveJobId] = useState<string | null>(null);

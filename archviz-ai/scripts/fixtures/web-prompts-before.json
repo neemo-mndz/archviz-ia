@@ -1,0 +1,722 @@
+[
+  {
+    "name": "default",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "lighting:Default",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "lighting:Natural Daylight",
+    "config": {
+      "lighting": "Natural Daylight",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Lighting Condition: Natural Daylight\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "lighting:Golden Hour",
+    "config": {
+      "lighting": "Golden Hour",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Lighting Condition: Golden Hour\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "lighting:Overcast",
+    "config": {
+      "lighting": "Overcast",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Lighting Condition: Overcast\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "lighting:Night",
+    "config": {
+      "lighting": "Night",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Lighting Condition: Night\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "weather:Default",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "weather:Clear Sky",
+    "config": {
+      "lighting": "Default",
+      "weather": "Clear Sky",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Weather/Atmosphere: Clear Sky\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "weather:Partly Cloudy",
+    "config": {
+      "lighting": "Default",
+      "weather": "Partly Cloudy",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Weather/Atmosphere: Partly Cloudy\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "weather:Cloudy",
+    "config": {
+      "lighting": "Default",
+      "weather": "Cloudy",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Weather/Atmosphere: Cloudy\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "weather:Foggy",
+    "config": {
+      "lighting": "Default",
+      "weather": "Foggy",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Weather/Atmosphere: Foggy\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "weather:Rainy",
+    "config": {
+      "lighting": "Default",
+      "weather": "Rainy",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Weather/Atmosphere: Rainy\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "fidelity:Maximum",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "fidelity:High",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "High",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: HIGH. Preserve architecture strictly. Minor detailing (e.g., adding subtle window frames) is allowed ONLY if it respects the original bounding boxes.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "fidelity:Balanced",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Balanced",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: BALANCED. Keep core geometry strictly intact. Minor realism adjustments permitted.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "people:Default",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "people:None",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "None",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- People Density: None\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "people:Low",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Low",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- People Density: Low\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "people:Medium",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Medium",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- People Density: Medium\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "people:High",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "High",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- People Density: High\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vehicles:Default",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vehicles:None",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "None",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vehicles Density: None\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vehicles:Low",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Low",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vehicles Density: Low\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vehicles:Medium",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Medium",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vehicles Density: Medium\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vehicles:High",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "High",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vehicles Density: High\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vegetation:Default",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vegetation:None",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "None",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vegetation Density: None\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vegetation:Low",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Low",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vegetation Density: Low\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vegetation:Medium",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Medium",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vegetation Density: Medium\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "vegetation:High",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "High",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n- Vegetation Density: High\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "materialCondition:Preserve Original",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "materialCondition:Brand New",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Brand New",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Material Condition: Brand New\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "materialCondition:Natural",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Natural",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Material Condition: Natural\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "materialCondition:Slightly Weathered",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Slightly Weathered",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n- Material Condition: Slightly Weathered\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "aspectRatio:Original",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "aspectRatio:1:1",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "1:1",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested aspect ratio: 1:1\nPreserve the architectural subject and camera perspective.\nIf canvas expansion is required to achieve the requested aspect ratio (1:1), extend only peripheral contextual areas such as sky, ground and surroundings.\nDo not crop, stretch, deform or redesign the architecture merely to satisfy the requested aspect ratio.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "aspectRatio:4:3",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "4:3",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested aspect ratio: 4:3\nPreserve the architectural subject and camera perspective.\nIf canvas expansion is required to achieve the requested aspect ratio (4:3), extend only peripheral contextual areas such as sky, ground and surroundings.\nDo not crop, stretch, deform or redesign the architecture merely to satisfy the requested aspect ratio.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "aspectRatio:3:2",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "3:2",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested aspect ratio: 3:2\nPreserve the architectural subject and camera perspective.\nIf canvas expansion is required to achieve the requested aspect ratio (3:2), extend only peripheral contextual areas such as sky, ground and surroundings.\nDo not crop, stretch, deform or redesign the architecture merely to satisfy the requested aspect ratio.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "aspectRatio:16:9",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "16:9",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested aspect ratio: 16:9\nPreserve the architectural subject and camera perspective.\nIf canvas expansion is required to achieve the requested aspect ratio (16:9), extend only peripheral contextual areas such as sky, ground and surroundings.\nDo not crop, stretch, deform or redesign the architecture merely to satisfy the requested aspect ratio.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "aspectRatio:9:16",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "9:16",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested aspect ratio: 9:16\nPreserve the architectural subject and camera perspective.\nIf canvas expansion is required to achieve the requested aspect ratio (9:16), extend only peripheral contextual areas such as sky, ground and surroundings.\nDo not crop, stretch, deform or redesign the architecture merely to satisfy the requested aspect ratio.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "resolution:Auto",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "resolution:1K",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "1K",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested output resolution: 1K\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "resolution:2K",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "2K",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested output resolution: 2K\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "resolution:4K",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "4K",
+      "additionalInstructions": ""
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nRequested output resolution: 4K\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n"
+  },
+  {
+    "name": "additionalInstructions:Preservar o ACM vermelho e a cal?ada.",
+    "config": {
+      "lighting": "Default",
+      "weather": "Default",
+      "fidelity": "Maximum",
+      "people": "Default",
+      "vehicles": "Default",
+      "vegetation": "Default",
+      "materialCondition": "Preserve Original",
+      "aspectRatio": "Original",
+      "resolution": "Auto",
+      "additionalInstructions": "Preservar o ACM vermelho e a cal?ada."
+    },
+    "prompt": "<SYSTEM_DIRECTIVE>\nYOU ARE AN ARCHITECTURAL VISUALIZATION EXPERT.\nTHIS IS A STRICT IMAGE EDITING TASK. DO NOT RECREATE THE IMAGE.\nYOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHITECTURE AND GEOMETRY.\n</SYSTEM_DIRECTIVE>\n\n<GEOMETRY_LOCK>\nThe supplied base image is the single authoritative source of truth.\nPRESERVE EXACTLY:\n- Camera position, viewpoint, and perspective\n- Building geometry, volumetry, and facade proportions\n- Openings, windows, doors, stairs, ramps, railings, roofs\n- Terrain, level differences, and spatial relationships\n- Surrounding buildings and urban context\n\nFIDELITY LEVEL: MAXIMUM. STRICT ADHERENCE REQUIRED. ANY ARCHITECTURAL ALTERATION IS STRICTLY FORBIDDEN. DO NOT ADD OR REMOVE STRUCTURAL ELEMENTS.\n</GEOMETRY_LOCK>\n\n<ENVIRONMENT_AND_ENTOURAGE>\nDO NOT alter the layout of streets, sidewalks, or existing vegetation unless strictly necessary to match the requested density.\n</ENVIRONMENT_AND_ENTOURAGE>\n\n<RENDER_INTENT>\nFocus purely on achieving a photorealistic architectural visualization.\nEnhance lighting, physically plausible shadows, reflections (especially glass), and photographic atmosphere.\n</RENDER_INTENT>\n\n<NEGATIVE_PROMPT>\nDO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\nDO NOT redesign the architecture or invent new shapes.\nDO NOT change the time of day if it conflicts with the Lighting Condition.\n</NEGATIVE_PROMPT>\n<OUTPUT_FORMAT>\nPreserve the exact aspect ratio and framing of the supplied base image.\n</OUTPUT_FORMAT>\n\n<USER_CUSTOM_INSTRUCTIONS>\nPreservar o ACM vermelho e a cal?ada.\n</USER_CUSTOM_INSTRUCTIONS>\n"
+  }
+]

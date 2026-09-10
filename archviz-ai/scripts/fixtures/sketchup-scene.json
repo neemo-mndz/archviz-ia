@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "source": "sketchup",
+  "units": "inch",
+  "viewport": { "width": 1, "height": 1 },
+  "camera": {
+    "eye": [300, -500, 200],
+    "target": [0, 0, 80],
+    "up": [0, 0, 1],
+    "perspective": true,
+    "fovDegrees": 47.2,
+    "aspectRatio": 0
+  },
+  "scene": { "name": "Cena 04" },
+  "model": { "name": "Estudo de fachada", "materialCount": 1, "objectCount": 3 },
+  "materials": [{ "name": "ACM vermelho", "color": "#B41E24", "opacity": 1 }],
+  "objects": [
+    { "name": "FACHADA_ACM", "definitionName": "", "type": "group", "material": "ACM vermelho", "tag": "Fachada", "hidden": false },
+    { "name": "Group#1", "definitionName": "Component#38", "type": "component", "material": "", "tag": "Untagged", "hidden": false },
+    { "name": "", "definitionName": "Brise vertical", "type": "component", "material": "", "tag": "Fachada", "hidden": false }
+  ]
+}

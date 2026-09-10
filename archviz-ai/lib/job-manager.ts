@@ -4,6 +4,7 @@ import crypto from 'crypto';
 import sizeOf from 'image-size';
 import { Job, JobStatus } from '@/types/job';
 import { RenderConfig } from '@/types/render';
+import type { RenderOrigin, SketchUpScene } from '@/types/scene';
 
 const JOBS_DIR = path.resolve(process.cwd(), 'jobs');
 const STATUSES: JobStatus[] = ['pending', 'processing', 'completed', 'failed'];
@@ -67,7 +68,8 @@ export async function locateJob(jobId: string): Promise<{ status: JobStatus, dir
 export async function createJob(
   baseImageBuffer: Buffer,
   prompt: string,
-  settings: RenderConfig
+  settings: RenderConfig,
+  context?: { origin: RenderOrigin; scene?: SketchUpScene }
 ): Promise<Job> {
   await initJobManager();
 
@@ -96,6 +98,8 @@ export async function createJob(
     status: 'pending',
     createdAt: new Date().toISOString(),
     source: 'base.png',
+    origin: context?.origin ?? 'web',
+    ...(context?.scene ? { sceneFile: 'scene.json' as const } : {}),
     output: 'render.png',
     settings,
     inputWidth,
@@ -104,14 +108,28 @@ export async function createJob(
     requestedResolution: settings.resolution
   };
 
-  // Write base.png
-  await fs.writeFile(path.join(jobDir, 'base.png'), baseImageBuffer);
+  try {
+    // Write base.png
+    await fs.writeFile(path.join(jobDir, 'base.png'), baseImageBuffer);
   
-  // Write prompt.md
-  await fs.writeFile(path.join(jobDir, 'prompt.md'), prompt, 'utf-8');
+    // Write prompt.md
+    await fs.writeFile(path.join(jobDir, 'prompt.md'), prompt, 'utf-8');
+    if (context?.scene) {
+      await fs.writeFile(path.join(jobDir, 'scene.json'), JSON.stringify(context.scene, null, 2), 'utf-8');
+    }
   
-  // Write job.json
-  await fs.writeFile(path.join(jobDir, 'job.json'), JSON.stringify(job, null, 2), 'utf-8');
+    // Write job.json
+    await fs.writeFile(path.join(jobDir, 'job.json'), JSON.stringify(job, null, 2), 'utf-8');
+  } catch (error) {
+    // Preserve a failed creation for diagnosis, but never leave it in the queue.
+    job.status = 'failed';
+    job.failedAt = new Date().toISOString();
+    job.error = 'Falha ao gravar os arquivos do job.';
+    const failedDir = getSecureJobDir('failed', jobId);
+    await fs.rename(jobDir, failedDir);
+    await fs.writeFile(path.join(failedDir, 'job.json'), JSON.stringify(job, null, 2), 'utf-8');
+    throw error;
+  }
 
   return job;
 }

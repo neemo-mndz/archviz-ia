@@ -1,11 +1,12 @@
-export type LightingOption = 'Natural Daylight' | 'Golden Hour' | 'Overcast' | 'Night' | 'Default';
-export type FidelityOption = 'Maximum' | 'High' | 'Balanced';
-export type DensityOption = 'Default' | 'None' | 'Low' | 'Medium' | 'High';
-export type MaterialConditionOption = 'Preserve Original' | 'Brand New' | 'Natural' | 'Slightly Weathered';
-export type WeatherOption = 'Default' | 'Clear Sky' | 'Partly Cloudy' | 'Cloudy' | 'Foggy' | 'Rainy';
+import type { RENDER_OPTIONS } from '@/lib/render-options';
 
-export type AspectRatioOption = 'Original' | '1:1' | '4:3' | '3:2' | '16:9' | '9:16';
-export type OutputResolutionOption = 'Auto' | '1K' | '2K' | '4K';
+export type LightingOption = (typeof RENDER_OPTIONS.lighting)[number];
+export type FidelityOption = (typeof RENDER_OPTIONS.fidelity)[number];
+export type DensityOption = (typeof RENDER_OPTIONS.people)[number];
+export type MaterialConditionOption = (typeof RENDER_OPTIONS.materialCondition)[number];
+export type WeatherOption = (typeof RENDER_OPTIONS.weather)[number];
+export type AspectRatioOption = (typeof RENDER_OPTIONS.aspectRatio)[number];
+export type OutputResolutionOption = (typeof RENDER_OPTIONS.resolution)[number];
 
 export interface RenderConfig {
   lighting: LightingOption;

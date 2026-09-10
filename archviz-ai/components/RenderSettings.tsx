@@ -1,5 +1,6 @@
 import React from 'react';
-import { RenderConfig, LightingOption, FidelityOption, DensityOption, MaterialConditionOption, WeatherOption } from '@/types/render';
+import { RenderConfig } from '@/types/render';
+import { RENDER_OPTIONS } from '@/lib/render-options';
 
 interface RenderSettingsProps {
   config: RenderConfig;
@@ -7,14 +8,11 @@ interface RenderSettingsProps {
   disabled?: boolean;
 }
 
-const LIGHTING_OPTIONS: LightingOption[] = ['Default', 'Natural Daylight', 'Golden Hour', 'Overcast', 'Night'];
-const WEATHER_OPTIONS: WeatherOption[] = ['Default', 'Clear Sky', 'Partly Cloudy', 'Cloudy', 'Foggy', 'Rainy'];
-const FIDELITY_OPTIONS: FidelityOption[] = ['Maximum', 'High', 'Balanced'];
-const DENSITY_OPTIONS: DensityOption[] = ['Default', 'None', 'Low', 'Medium', 'High'];
-const MATERIAL_OPTIONS: MaterialConditionOption[] = ['Preserve Original', 'Brand New', 'Natural', 'Slightly Weathered'];
-
-const ASPECT_RATIO_OPTIONS = ['Original', '1:1', '4:3', '3:2', '16:9', '9:16'];
-const RESOLUTION_OPTIONS = ['Auto', '1K', '2K', '4K'];
+const {
+  lighting: LIGHTING_OPTIONS, weather: WEATHER_OPTIONS, fidelity: FIDELITY_OPTIONS,
+  people: DENSITY_OPTIONS, materialCondition: MATERIAL_OPTIONS,
+  aspectRatio: ASPECT_RATIO_OPTIONS, resolution: RESOLUTION_OPTIONS,
+} = RENDER_OPTIONS;
 
 export default function RenderSettings({ config, onChange, disabled }: RenderSettingsProps) {
   
@@ -149,4 +147,3 @@ export default function RenderSettings({ config, onChange, disabled }: RenderSet
     </div>
   );
 }
-
