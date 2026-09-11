@@ -2,9 +2,12 @@ import { spawn, execFileSync, ChildProcess } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import sizeOf from 'image-size';
-import { JobStatus } from '@/types/job';
+import { Job, JobStatus } from '@/types/job';
 
 const runningWorkers = new Map<string, ChildProcess>();
+
+type AgyInstructionJob = Pick<Job, 'source' | 'geometrySource' | 'solidGeometrySource' | 'depthSource'>;
+type AgyInputImageCandidate = { order: number; role: string; file?: string };
 
 function resolveAgyPath(): string {
   if (process.env.AGY_PATH) {
@@ -83,6 +86,41 @@ function logToWorker(jobId: string, message: string, knownDir?: string) {
   }
 }
 
+function collectAgyInputImages(processingDir: string, jobData: AgyInstructionJob | null) {
+  const candidates: AgyInputImageCandidate[] = [
+    { order: 1, role: 'base visual reference', file: jobData?.source || 'base.png' },
+    { order: 2, role: 'geometry edge/line reference', file: jobData?.geometrySource },
+    { order: 3, role: 'solid mass/occupancy reference', file: jobData?.solidGeometrySource },
+    { order: 4, role: 'depth spatial reference', file: jobData?.depthSource },
+  ];
+
+  return candidates
+    .filter((candidate): candidate is AgyInputImageCandidate & { file: string } => (
+      typeof candidate.file === 'string' && candidate.file.length > 0
+    ))
+    .map((candidate) => {
+      const filePath = path.join(processingDir, candidate.file);
+      let bytes = 0;
+      let width: number | undefined;
+      let height: number | undefined;
+
+      if (fs.existsSync(filePath)) {
+        const buffer = fs.readFileSync(filePath);
+        bytes = buffer.length;
+        try {
+          const dimensions = sizeOf(buffer);
+          width = dimensions.width;
+          height = dimensions.height;
+        } catch(e) {
+          // Keep the image entry; dimensions are diagnostic only.
+        }
+      }
+
+      return { ...candidate, bytes, width, height };
+    })
+    .filter((candidate) => candidate.bytes > 0);
+}
+
 export function startAgyWorker(jobId: string, pendingJobDir: string) {
   if (runningWorkers.has(jobId)) {
     throw new Error(`Worker for job ${jobId} is already running.`);
@@ -97,6 +135,7 @@ export function startAgyWorker(jobId: string, pendingJobDir: string) {
   
   // 2. Update job.json
   const startedAt = new Date().toISOString();
+  let jobDataForInstruction: AgyInstructionJob | null = null;
   try {
     const jobFile = path.join(processingDir, 'job.json');
     if (fs.existsSync(jobFile)) {
@@ -104,6 +143,7 @@ export function startAgyWorker(jobId: string, pendingJobDir: string) {
       data.status = 'processing';
       data.startedAt = startedAt;
       fs.writeFileSync(jobFile, JSON.stringify(data, null, 2), 'utf-8');
+      jobDataForInstruction = data as AgyInstructionJob;
     }
   } catch (e) {
     console.error('Falha ao atualizar startedAt:', e);
@@ -112,7 +152,23 @@ export function startAgyWorker(jobId: string, pendingJobDir: string) {
   logToWorker(jobId, `Starting worker for jobId: ${jobId}`, processingDir);
   logToWorker(jobId, `Job moved to processing dir: ${processingDir}`, processingDir);
 
-  const instruction = `You are the ArchViz worker. Go to the directory: ${processingDir.replace(/\\/g, '/')}. Read the file 'prompt.md' and edit 'base.png' exactly as instructed. Save the resulting image EXACTLY as 'render.png' in the same directory. DO NOT modify 'job.json'. DO NOT move the directory. Just generate and save 'render.png' and exit.`;
+  const inputImages = collectAgyInputImages(processingDir, jobDataForInstruction);
+  logToWorker(jobId, 'Antigravity input images:', processingDir);
+  inputImages.forEach((image) => {
+    const dimensions = image.width && image.height ? ` ${image.width}x${image.height}` : '';
+    logToWorker(jobId, `${image.order}. ${image.file} (${image.role}) bytes=${image.bytes}${dimensions}`, processingDir);
+  });
+
+  const imageInstructions = inputImages
+    .map((image) => `${image.order}. ${image.file} - ${image.role}`)
+    .join('\n');
+
+  const instruction = `You are the ArchViz worker. Go to the directory: ${processingDir.replace(/\\/g, '/')}. Read the file 'prompt.md' and edit 'base.png' exactly as instructed.
+
+Input images are available in this exact order:
+${imageInstructions}
+
+Use image 1 as the base visual reference. When images 2, 3, or 4 are present, use them only as structural references for geometry, mass/occupancy, and depth. Preserve the ordered roles above. Save the resulting image EXACTLY as 'render.png' in the same directory. DO NOT modify 'job.json'. DO NOT move the directory. Just generate and save 'render.png' and exit.`;
 
   logToWorker(jobId, `Resolved agy path: ${agyPath}`, processingDir);
 
