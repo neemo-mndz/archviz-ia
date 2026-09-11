@@ -158,8 +158,15 @@ module ArchVizAI
       @last_payload = {
         image: { bytes: capture[:image], filename: 'scene.png', content_type: 'image/png' },
         geometry: { bytes: capture[:geometry_image], filename: 'geometry.png', content_type: 'image/png' },
+        solid_geometry: { bytes: capture[:solid_geometry_image], filename: 'solid_geometry.png', content_type: 'image/png' },
+        depth: { bytes: capture[:depth_image], filename: 'depth.png', content_type: 'image/png' },
         fields: fields.merge('origin' => 'sketchup', 'scene' => scene_json)
       }
+      ArchVizAI.log("payload image bytes=#{@last_payload[:image][:bytes].bytesize}")
+      ArchVizAI.log("payload geometry bytes=#{@last_payload[:geometry][:bytes].bytesize}")
+      ArchVizAI.log("payload solid bytes=#{@last_payload[:solid_geometry][:bytes].bytesize}")
+      ArchVizAI.log("payload depth bytes=#{@last_payload[:depth][:bytes].bytesize}")
+      ArchVizAI.log("payload scene bytes=#{scene_json.bytesize}")
       emit('captured', {
         scene: capture[:scene],
         image: "data:image/png;base64,#{Base64.strict_encode64(capture[:image])}",

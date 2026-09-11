@@ -11,7 +11,7 @@ export const runtime = 'nodejs';
 
 export async function POST(req: NextRequest) {
   try {
-    const { buffer, geometryBuffer, solidGeometryBuffer, config, origin, scene } = await parseRenderInput(await readRenderForm(req));
+    const { buffer, geometryBuffer, solidGeometryBuffer, depthBuffer, config, origin, scene } = await parseRenderInput(await readRenderForm(req));
     const release = acquireRenderAdmission();
     if (!release) {
       return NextResponse.json({ success: false, error: 'Existe um render em andamento. Aguarde a conclusão.' }, { status: 429 });
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       const prompt = buildRenderPrompt(config, scene);
 
       // Create job (UUID generated securely, saves base.png, prompt.md, job.json)
-      const job = await createJob(buffer, prompt, config, { origin, scene, geometryBuffer, solidGeometryBuffer });
+      const job = await createJob(buffer, prompt, config, { origin, scene, geometryBuffer, solidGeometryBuffer, depthBuffer });
   
       // Start worker asynchronously
       const jobDir = path.resolve(process.cwd(), 'jobs', 'pending', job.id);

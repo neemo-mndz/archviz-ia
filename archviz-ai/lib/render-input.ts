@@ -85,6 +85,7 @@ export async function parseRenderInput(form: FormData) {
 
   const geometryBuffer = await readSketchUpReference('geometry');
   const solidGeometryBuffer = await readSketchUpReference('solidGeometry');
+  const depthBuffer = await readSketchUpReference('depth');
 
-  return { buffer, geometryBuffer, solidGeometryBuffer, config, origin: origin as RenderOrigin, scene };
+  return { buffer, geometryBuffer, solidGeometryBuffer, depthBuffer, config, origin: origin as RenderOrigin, scene };
 }

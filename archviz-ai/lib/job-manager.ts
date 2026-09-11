@@ -69,7 +69,7 @@ export async function createJob(
   baseImageBuffer: Buffer,
   prompt: string,
   settings: RenderConfig,
-  context?: { origin: RenderOrigin; scene?: SketchUpScene; geometryBuffer?: Buffer; solidGeometryBuffer?: Buffer }
+  context?: { origin: RenderOrigin; scene?: SketchUpScene; geometryBuffer?: Buffer; solidGeometryBuffer?: Buffer; depthBuffer?: Buffer }
 ): Promise<Job> {
   await initJobManager();
 
@@ -101,6 +101,7 @@ export async function createJob(
     origin: context?.origin ?? 'web',
     ...(context?.geometryBuffer ? { geometrySource: 'geometry.png' as const } : {}),
     ...(context?.solidGeometryBuffer ? { solidGeometrySource: 'solid_geometry.png' as const } : {}),
+    ...(context?.depthBuffer ? { depthSource: 'depth.png' as const } : {}),
     ...(context?.scene ? { sceneFile: 'scene.json' as const } : {}),
     output: 'render.png',
     settings,
@@ -119,6 +120,9 @@ export async function createJob(
     if (context?.solidGeometryBuffer) {
       await fs.writeFile(path.join(jobDir, 'solid_geometry.png'), context.solidGeometryBuffer);
     }
+    if (context?.depthBuffer) {
+      await fs.writeFile(path.join(jobDir, 'depth.png'), context.depthBuffer);
+    }
   
     // Write prompt.md
     await fs.writeFile(path.join(jobDir, 'prompt.md'), prompt, 'utf-8');
@@ -128,6 +132,9 @@ export async function createJob(
   
     // Write job.json
     await fs.writeFile(path.join(jobDir, 'job.json'), JSON.stringify(job, null, 2), 'utf-8');
+    if (context?.origin === 'sketchup') {
+      await logSketchUpJobFiles(jobDir);
+    }
   } catch (error) {
     // Preserve a failed creation for diagnosis, but never leave it in the queue.
     job.status = 'failed';
@@ -140,6 +147,19 @@ export async function createJob(
   }
 
   return job;
+}
+
+async function logSketchUpJobFiles(jobDir: string) {
+  const names = ['job.json', 'prompt.md', 'base.png', 'geometry.png', 'solid_geometry.png', 'depth.png', 'scene.json'];
+  const sizes: Record<string, number> = {};
+  for (const name of names) {
+    try {
+      sizes[name] = (await fs.stat(path.join(/*turbopackIgnore: true*/ jobDir, name))).size;
+    } catch {
+      sizes[name] = 0;
+    }
+  }
+  console.log('[SketchUp job files]', sizes);
 }
 
 /**

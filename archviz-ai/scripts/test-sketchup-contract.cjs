@@ -41,11 +41,12 @@ const oldAgyPath = process.env.AGY_PATH;
     const { parseSketchUpScene } = load('lib/scene-validation.ts');
     const { POST } = load('app/api/render/route.ts');
     const manager = load('lib/job-manager.ts');
-    const request = (fields = {}, bytes = png, mime = 'image/png', geometryBytes = null, solidGeometryBytes = null) => {
+    const request = (fields = {}, bytes = png, mime = 'image/png', geometryBytes = null, solidGeometryBytes = null, depthBytes = null) => {
       const body = new FormData();
       body.set('image', new Blob([bytes], { type: mime }), '../../not-a-path.png');
       if (geometryBytes) body.set('geometry', new Blob([geometryBytes], { type: 'image/png' }), 'geometry.png');
       if (solidGeometryBytes) body.set('solidGeometry', new Blob([solidGeometryBytes], { type: 'image/png' }), 'solid_geometry.png');
+      if (depthBytes) body.set('depth', new Blob([depthBytes], { type: 'image/png' }), 'depth.png');
       for (const [key, value] of Object.entries(fields)) body.set(key, value);
       return new Request('http://localhost/api/render', { method: 'POST', body });
     };
@@ -119,17 +120,19 @@ const oldAgyPath = process.env.AGY_PATH;
         ],
       },
     };
-    const sketchResponse = await POST(request({ origin: 'sketchup', scene: JSON.stringify(sceneWithFacts) }, png, 'image/png', png, png));
+    const sketchResponse = await POST(request({ origin: 'sketchup', scene: JSON.stringify(sceneWithFacts) }, png, 'image/png', png, png, png));
     assert.equal(sketchResponse.status, 200);
     const sketch = await sketchResponse.json();
     const sketchJob = await manager.getJob(sketch.jobId);
     assert.equal(sketchJob.origin, 'sketchup'); assert.equal(sketchJob.source, 'base.png');
     assert.equal(sketchJob.geometrySource, 'geometry.png');
     assert.equal(sketchJob.solidGeometrySource, 'solid_geometry.png');
+    assert.equal(sketchJob.depthSource, 'depth.png');
     assert.equal(sketchJob.sceneFile, 'scene.json');
     const sketchDir = children.at(-1).cwd;
     assert.deepEqual(fs.readFileSync(path.join(sketchDir, 'geometry.png')), png);
     assert.deepEqual(fs.readFileSync(path.join(sketchDir, 'solid_geometry.png')), png);
+    assert.deepEqual(fs.readFileSync(path.join(sketchDir, 'depth.png')), png);
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(sketchDir, 'scene.json'))), sceneWithFacts);
     const prompt = fs.readFileSync(path.join(sketchDir, 'prompt.md'), 'utf8');
     assert.equal(prompt.includes('SOLID GEOMETRY REFERENCE'), false);

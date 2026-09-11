@@ -93,16 +93,26 @@ module ArchVizAI
         body << solid_geometry[:bytes].b
         body << "\r\n".b
       end
+      depth = payload[:depth]
+      if depth
+        body << "--#{boundary}\r\n".b
+        body << "Content-Disposition: form-data; name=\"depth\"; filename=\"#{depth[:filename]}\"\r\n".b
+        body << "Content-Type: #{depth[:content_type]}\r\n\r\n".b
+        body << depth[:bytes].b
+        body << "\r\n".b
+      end
       body << "--#{boundary}--\r\n".b
 
       scene_bytes = payload[:fields] && payload[:fields]['scene'] ? payload[:fields]['scene'].bytesize : 0
       img_bytes = img && img[:bytes] ? img[:bytes].bytesize : 0
       geometry_bytes = geometry && geometry[:bytes] ? geometry[:bytes].bytesize : 0
       solid_geometry_bytes = solid_geometry && solid_geometry[:bytes] ? solid_geometry[:bytes].bytesize : 0
+      depth_bytes = depth && depth[:bytes] ? depth[:bytes].bytesize : 0
       ArchVizAI.log("POST: multipart bytes=#{body.bytesize}")
       ArchVizAI.log("POST: image bytes=#{img_bytes}")
       ArchVizAI.log("POST: geometry bytes=#{geometry_bytes}")
       ArchVizAI.log("POST: solid geometry bytes=#{solid_geometry_bytes}")
+      ArchVizAI.log("POST: depth bytes=#{depth_bytes}")
       ArchVizAI.log("POST: scene bytes=#{scene_bytes}")
 
       request = Sketchup::Http::Request.new(@url + '/api/render', Sketchup::Http::POST)
