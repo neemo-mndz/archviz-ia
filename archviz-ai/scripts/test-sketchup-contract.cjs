@@ -111,9 +111,10 @@ const oldAgyPath = process.env.AGY_PATH;
         surfacesWithInnerLoops: 1,
         continuousSurfaces: 1,
         collectionLimit: 200,
+        analysisMs: 7,
         strategy: 'test visible faces',
         surfaces: [
-          { id: '10', scope: 'root', area: 120, normal: [0, 0, 1], loopCount: 1, innerLoopCount: 0 },
+          { id: '10', scope: 'root', area: 120, normal: [0, 0, 1], loopCount: 1, innerLoopCount: 0, screenBounds: { xMin: 0.1, yMin: 0.2, xMax: 0.4, yMax: 0.8 } },
           { id: '11', scope: 'component', ownerName: 'FACHADA_ACM', area: 80, normal: [1, 0, 0], loopCount: 3, innerLoopCount: 2 },
         ],
       },
@@ -131,9 +132,8 @@ const oldAgyPath = process.env.AGY_PATH;
     assert.deepEqual(fs.readFileSync(path.join(sketchDir, 'solid_geometry.png')), png);
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(sketchDir, 'scene.json'))), sceneWithFacts);
     const prompt = fs.readFileSync(path.join(sketchDir, 'prompt.md'), 'utf8');
-    assert.ok(prompt.includes('SOURCE PRIORITY'));
-    assert.ok(prompt.includes('SOLID GEOMETRY REFERENCE'));
-    assert.ok(prompt.includes('Detected visible surfaces containing internal loops/openings: 1'));
+    assert.equal(prompt.includes('SOLID GEOMETRY REFERENCE'), false);
+    assert.equal(prompt.includes('Detected visible surfaces containing internal loops/openings: 1'), false);
     for (const text of ['FACHADA_ACM', 'ACM vermelho', 'Brise vertical', 'Cena 04']) assert.ok(prompt.includes(text));
     for (const text of ['Group#1', 'Component#38', 'Untagged']) assert.equal(prompt.includes(text), false);
     complete(sketch.jobId);

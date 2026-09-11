@@ -10,6 +10,7 @@ export interface GeometrySurfaceFact {
   normal: Vector3;
   loopCount: number;
   innerLoopCount: number;
+  screenBounds?: { xMin: number; yMin: number; xMax: number; yMax: number };
 }
 
 export interface GeometryFacts {
@@ -18,6 +19,7 @@ export interface GeometryFacts {
   surfacesWithInnerLoops: number;
   continuousSurfaces: number;
   collectionLimit: number;
+  analysisMs?: number;
   strategy: string;
   surfaces: GeometrySurfaceFact[];
 }

@@ -36,6 +36,9 @@
     $('solid-preview').removeAttribute('src');
     $('solid-preview').hidden = false;
     $('solid-missing').hidden = true;
+    $('depth-preview').removeAttribute('src');
+    $('depth-preview').hidden = false;
+    $('depth-missing').hidden = true;
     $('render-preview').removeAttribute('src');
     message.textContent = '';
     sketchup.invalidate_payload();
@@ -109,6 +112,7 @@
         preview.src = data.image;
         optionalPreview('geometry-preview', 'geometry-missing', data.geometryImage);
         optionalPreview('solid-preview', 'solid-missing', data.solidGeometryImage);
+        optionalPreview('depth-preview', 'depth-missing', data.depthImage);
         result.hidden = false;
         $('render-result').hidden = true;
         const summary = data.scene;
@@ -117,7 +121,12 @@
         const faceText = Number.isFinite(facts.surfaceCount)
           ? ` Faces analisadas: ${facts.surfaceCount}. Com inner loops: ${facts.surfacesWithInnerLoops || 0}.`
           : '';
-        $('payload-summary').textContent = `Payload pronto para renderizacao. Imagem: ${summary.viewport.width} x ${summary.viewport.height}. Cena: ${sceneName}. Materiais: ${summary.model.materialCount}. Objetos: ${summary.model.objectCount}.${faceText} Origin: sketchup.`;
+        const validation = data.validation || {};
+        const diff = validation.geometry_solid_difference || {};
+        const metrics = Number.isFinite(validation.solid_occupancy_percent)
+          ? ` Solid occupancy: ${validation.solid_occupancy_percent.toFixed(1)}%. Geometry/Solid diff: ${(diff.different_percent || 0).toFixed(1)}%. Depth: ${validation.depth_min || 0} - ${validation.depth_max || 0}.`
+          : '';
+        $('payload-summary').textContent = `Payload pronto para diagnostico. Imagem: ${summary.viewport.width} x ${summary.viewport.height}. Cena: ${sceneName}. Materiais: ${summary.model.materialCount}. Objetos: ${summary.model.objectCount}.${faceText}${metrics} Origin: sketchup.`;
         message.textContent = 'Cena capturada com sucesso.';
       } else if (event === 'error') {
         busy = false; message.textContent = data;

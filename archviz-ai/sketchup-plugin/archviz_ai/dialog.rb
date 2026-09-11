@@ -158,7 +158,6 @@ module ArchVizAI
       @last_payload = {
         image: { bytes: capture[:image], filename: 'scene.png', content_type: 'image/png' },
         geometry: { bytes: capture[:geometry_image], filename: 'geometry.png', content_type: 'image/png' },
-        solid_geometry: { bytes: capture[:solid_geometry_image], filename: 'solid_geometry.png', content_type: 'image/png' },
         fields: fields.merge('origin' => 'sketchup', 'scene' => scene_json)
       }
       emit('captured', {
@@ -166,9 +165,11 @@ module ArchVizAI
         image: "data:image/png;base64,#{Base64.strict_encode64(capture[:image])}",
         geometryImage: "data:image/png;base64,#{Base64.strict_encode64(capture[:geometry_image])}",
         solidGeometryImage: "data:image/png;base64,#{Base64.strict_encode64(capture[:solid_geometry_image])}",
+        depthImage: "data:image/png;base64,#{Base64.strict_encode64(capture[:depth_image])}",
         bytes: capture[:image].bytesize,
         geometryBytes: capture[:geometry_image].bytesize,
         solidGeometryBytes: capture[:solid_geometry_image].bytesize,
+        depthBytes: capture[:depth_image].bytesize,
         validation: capture[:validation]
       })
     rescue StandardError => error

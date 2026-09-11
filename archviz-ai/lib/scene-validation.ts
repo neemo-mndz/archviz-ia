@@ -93,6 +93,15 @@ export function parseSketchUpScene(text: string): SketchUpScene {
       };
       if (item.ownerName !== undefined) output.ownerName = name(item.ownerName, 'geometryFacts.surface.ownerName');
       if (item.tag !== undefined) output.tag = name(item.tag, 'geometryFacts.surface.tag');
+      if (item.screenBounds !== undefined) {
+        const bounds = record(item.screenBounds, 'geometryFacts.surface.screenBounds');
+        output.screenBounds = {
+          xMin: number(bounds.xMin, 'geometryFacts.surface.screenBounds.xMin', 0, 1),
+          yMin: number(bounds.yMin, 'geometryFacts.surface.screenBounds.yMin', 0, 1),
+          xMax: number(bounds.xMax, 'geometryFacts.surface.screenBounds.xMax', 0, 1),
+          yMax: number(bounds.yMax, 'geometryFacts.surface.screenBounds.yMax', 0, 1),
+        };
+      }
       return output;
     });
     geometryFacts = {
@@ -101,6 +110,7 @@ export function parseSketchUpScene(text: string): SketchUpScene {
       surfacesWithInnerLoops: integer(facts.surfacesWithInnerLoops, 'geometryFacts.surfacesWithInnerLoops', 0, 1000000),
       continuousSurfaces: integer(facts.continuousSurfaces, 'geometryFacts.continuousSurfaces', 0, 1000000),
       collectionLimit: integer(facts.collectionLimit, 'geometryFacts.collectionLimit', 1, 200),
+      ...(facts.analysisMs !== undefined ? { analysisMs: integer(facts.analysisMs, 'geometryFacts.analysisMs', 0, 600000) } : {}),
       strategy: name(facts.strategy, 'geometryFacts.strategy'),
       surfaces,
     };

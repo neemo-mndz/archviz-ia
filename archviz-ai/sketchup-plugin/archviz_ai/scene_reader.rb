@@ -52,11 +52,32 @@ module ArchVizAI
       true
     end
 
-    def self.face_fact(face, transform, scope)
+    def self.screen_bounds(face, transform, view, width, height)
+      xs = []
+      ys = []
+      face.vertices.each do |vertex|
+        point = vertex.position.transform(transform)
+        screen = view.screen_coords(point)
+        xs << (screen.x.to_f / width)
+        ys << (screen.y.to_f / height)
+      end
+      return nil if xs.empty? || ys.empty?
+
+      {
+        'xMin' => [[xs.min, 0.0].max, 1.0].min.round(4),
+        'yMin' => [[ys.min, 0.0].max, 1.0].min.round(4),
+        'xMax' => [[xs.max, 0.0].max, 1.0].min.round(4),
+        'yMax' => [[ys.max, 0.0].max, 1.0].min.round(4)
+      }
+    rescue StandardError
+      nil
+    end
+
+    def self.face_fact(face, transform, scope, view = nil, width = nil, height = nil)
       normal = face.normal.transform(transform)
       normal.normalize! if normal.length.positive?
       loops = face.loops
-      {
+      fact = {
         'id' => face.respond_to?(:persistent_id) ? face.persistent_id.to_s : face.entityID.to_s,
         'scope' => scope,
         'area' => face.area(transform).to_f.round(4),
@@ -64,16 +85,22 @@ module ArchVizAI
         'loopCount' => loops.length,
         'innerLoopCount' => [loops.length - 1, 0].max
       }
+      bounds = screen_bounds(face, transform, view, width, height) if view && width && height
+      fact['screenBounds'] = bounds if bounds
+      fact
     end
 
     def self.collect_face_facts(model)
+      started = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       limit = 200
       candidates = []
+      view = model.active_view
+      width, height = dimensions(view)
       model.entities.each do |entity|
         next unless visible_drawing_element?(entity)
 
         if entity.is_a?(Sketchup::Face)
-          candidates << face_fact(entity, Geom::Transformation.new, 'root')
+          candidates << face_fact(entity, Geom::Transformation.new, 'root', view, width, height)
         elsif entity.is_a?(Sketchup::Group) || entity.is_a?(Sketchup::ComponentInstance)
           transform = entity.transformation
           entities = entity.is_a?(Sketchup::Group) ? entity.entities : entity.definition.entities
@@ -81,7 +108,7 @@ module ArchVizAI
           entities.each do |child|
             next unless child.is_a?(Sketchup::Face) && visible_drawing_element?(child)
 
-            fact = face_fact(child, transform, entity.is_a?(Sketchup::Group) ? 'group' : 'component')
+            fact = face_fact(child, transform, entity.is_a?(Sketchup::Group) ? 'group' : 'component', view, width, height)
             fact['ownerName'] = scope_name unless scope_name.empty?
             fact['tag'] = text(entity.layer.name) if entity.layer && !entity.layer.name.to_s.empty?
             candidates << fact
@@ -97,9 +124,18 @@ module ArchVizAI
         'surfacesWithInnerLoops' => candidates.count { |fact| fact['innerLoopCount'].positive? },
         'continuousSurfaces' => candidates.count { |fact| fact['innerLoopCount'].zero? },
         'collectionLimit' => limit,
+        'analysisMs' => ((Process.clock_gettime(Process::CLOCK_MONOTONIC) - started) * 1000).round,
         'strategy' => 'root faces plus first-level visible group/component faces, sorted by area; no occlusion culling',
         'surfaces' => surfaces
       }
+    end
+
+    def self.selected_face_fact(model = Sketchup.active_model)
+      face = model.selection.find { |entity| entity.is_a?(Sketchup::Face) }
+      raise 'Select one SketchUp::Face first.' unless face
+
+      width, height = dimensions(model.active_view)
+      face_fact(face, Geom::Transformation.new, 'selected', model.active_view, width, height)
     end
 
     def self.read(model = Sketchup.active_model)
