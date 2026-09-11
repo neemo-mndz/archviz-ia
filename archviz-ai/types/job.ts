@@ -13,6 +13,8 @@ export interface Job {
   durationMs?: number;
   totalDurationMs?: number;
   source: string; // usually 'base.png'
+  geometrySource?: 'geometry.png';
+  solidGeometrySource?: 'solid_geometry.png';
   origin?: RenderOrigin; // absent on legacy jobs means web
   sceneFile?: 'scene.json';
   output: string; // usually 'render.png'

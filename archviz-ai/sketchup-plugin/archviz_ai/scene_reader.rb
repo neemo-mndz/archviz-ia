@@ -43,6 +43,65 @@ module ArchVizAI
       }
     end
 
+    def self.visible_drawing_element?(entity)
+      return false if entity.respond_to?(:hidden?) && entity.hidden?
+      return false if entity.respond_to?(:visible?) && !entity.visible?
+      layer = entity.respond_to?(:layer) ? entity.layer : nil
+      return false if layer && layer.respond_to?(:visible?) && !layer.visible?
+
+      true
+    end
+
+    def self.face_fact(face, transform, scope)
+      normal = face.normal.transform(transform)
+      normal.normalize! if normal.length.positive?
+      loops = face.loops
+      {
+        'id' => face.respond_to?(:persistent_id) ? face.persistent_id.to_s : face.entityID.to_s,
+        'scope' => scope,
+        'area' => face.area(transform).to_f.round(4),
+        'normal' => normal.to_a.map { |value| value.to_f.round(6) },
+        'loopCount' => loops.length,
+        'innerLoopCount' => [loops.length - 1, 0].max
+      }
+    end
+
+    def self.collect_face_facts(model)
+      limit = 200
+      candidates = []
+      model.entities.each do |entity|
+        next unless visible_drawing_element?(entity)
+
+        if entity.is_a?(Sketchup::Face)
+          candidates << face_fact(entity, Geom::Transformation.new, 'root')
+        elsif entity.is_a?(Sketchup::Group) || entity.is_a?(Sketchup::ComponentInstance)
+          transform = entity.transformation
+          entities = entity.is_a?(Sketchup::Group) ? entity.entities : entity.definition.entities
+          scope_name = text(entity.name.to_s.empty? ? entity.definition.name : entity.name)
+          entities.each do |child|
+            next unless child.is_a?(Sketchup::Face) && visible_drawing_element?(child)
+
+            fact = face_fact(child, transform, entity.is_a?(Sketchup::Group) ? 'group' : 'component')
+            fact['ownerName'] = scope_name unless scope_name.empty?
+            fact['tag'] = text(entity.layer.name) if entity.layer && !entity.layer.name.to_s.empty?
+            candidates << fact
+          end
+        end
+      end
+
+      sorted = candidates.sort_by { |fact| -fact['area'] }
+      surfaces = sorted.first(limit)
+      {
+        'surfaceCount' => candidates.length,
+        'reportedSurfaceCount' => surfaces.length,
+        'surfacesWithInnerLoops' => candidates.count { |fact| fact['innerLoopCount'].positive? },
+        'continuousSurfaces' => candidates.count { |fact| fact['innerLoopCount'].zero? },
+        'collectionLimit' => limit,
+        'strategy' => 'root faces plus first-level visible group/component faces, sorted by area; no occlusion culling',
+        'surfaces' => surfaces
+      }
+    end
+
     def self.read(model = Sketchup.active_model)
       raise 'Nenhum modelo aberto.' unless model
 
@@ -69,7 +128,8 @@ module ArchVizAI
         'camera' => camera(model.active_view),
         'scene' => { 'name' => model.pages.selected_page ? text(model.pages.selected_page.name) : nil },
         'model' => { 'name' => text(model.name), 'materialCount' => model.materials.length, 'objectCount' => count },
-        'materials' => model.materials.take(200).map { |item| material(item) }, 'objects' => objects
+        'materials' => model.materials.take(200).map { |item| material(item) }, 'objects' => objects,
+        'geometryFacts' => collect_face_facts(model)
       }
       raise 'Metadados da cena excedem 1 MiB.' if JSON.generate(scene).bytesize > Config::MAX_SCENE_BYTES
 

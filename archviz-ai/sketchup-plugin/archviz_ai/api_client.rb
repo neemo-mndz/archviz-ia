@@ -59,6 +59,7 @@ module ArchVizAI
     end
 
     def post_render(payload, &callback)
+      ArchVizAI.log("POST: /api/render START")
       boundary = "----RubyMultipartClient#{rand(1000000)}"
       body = String.new(encoding: Encoding::BINARY)
       
@@ -74,15 +75,35 @@ module ArchVizAI
       body << "--#{boundary}\r\n".b
       body << "Content-Disposition: form-data; name=\"image\"; filename=\"#{img[:filename]}\"\r\n".b
       body << "Content-Type: #{img[:content_type]}\r\n\r\n".b
-      
-      ArchVizAI.log("multipart encoding=#{body.encoding}")
-      ArchVizAI.log("multipart bytes=#{body.bytesize}")
-      ArchVizAI.log("image encoding=#{img[:bytes].encoding}")
-      ArchVizAI.log("image bytes=#{img[:bytes].bytesize}")
-      
       body << img[:bytes].b
       body << "\r\n".b
+      geometry = payload[:geometry]
+      if geometry
+        body << "--#{boundary}\r\n".b
+        body << "Content-Disposition: form-data; name=\"geometry\"; filename=\"#{geometry[:filename]}\"\r\n".b
+        body << "Content-Type: #{geometry[:content_type]}\r\n\r\n".b
+        body << geometry[:bytes].b
+        body << "\r\n".b
+      end
+      solid_geometry = payload[:solid_geometry]
+      if solid_geometry
+        body << "--#{boundary}\r\n".b
+        body << "Content-Disposition: form-data; name=\"solidGeometry\"; filename=\"#{solid_geometry[:filename]}\"\r\n".b
+        body << "Content-Type: #{solid_geometry[:content_type]}\r\n\r\n".b
+        body << solid_geometry[:bytes].b
+        body << "\r\n".b
+      end
       body << "--#{boundary}--\r\n".b
+
+      scene_bytes = payload[:fields] && payload[:fields]['scene'] ? payload[:fields]['scene'].bytesize : 0
+      img_bytes = img && img[:bytes] ? img[:bytes].bytesize : 0
+      geometry_bytes = geometry && geometry[:bytes] ? geometry[:bytes].bytesize : 0
+      solid_geometry_bytes = solid_geometry && solid_geometry[:bytes] ? solid_geometry[:bytes].bytesize : 0
+      ArchVizAI.log("POST: multipart bytes=#{body.bytesize}")
+      ArchVizAI.log("POST: image bytes=#{img_bytes}")
+      ArchVizAI.log("POST: geometry bytes=#{geometry_bytes}")
+      ArchVizAI.log("POST: solid geometry bytes=#{solid_geometry_bytes}")
+      ArchVizAI.log("POST: scene bytes=#{scene_bytes}")
 
       request = Sketchup::Http::Request.new(@url + '/api/render', Sketchup::Http::POST)
       request.headers = { 'Content-Type' => "multipart/form-data; boundary=#{boundary}" }
@@ -91,29 +112,38 @@ module ArchVizAI
       entry = { request: request }
       @requests[request.object_id] = entry
       finish = lambda do |data, error|
+        ArchVizAI.log("POST: callback received")
         next unless @requests.delete(request.object_id)
         UI.stop_timer(entry[:timer]) if entry[:timer]
         callback.call(data, error)
       end
       entry[:timer] = UI.start_timer(30, false) do
         request.cancel
+        ArchVizAI.log("POST: timer expired")
         finish.call(nil, 'Tempo limite excedido ao enviar render.')
       end
       started = request.start do |_req, response|
         begin
           raise 'Engine offline ou sem resposta.' unless response
-          data = JSON.parse(response.body.dup.force_encoding('UTF-8'))
+          ArchVizAI.log("POST: HTTP status=#{response.status_code}")
+          resp_body = response.body ? response.body.dup.force_encoding('UTF-8') : ''
+          truncated_body = resp_body.bytesize > 2048 ? "#{resp_body[0...2048]}... (truncated)" : resp_body
+          ArchVizAI.log("POST: response body=#{truncated_body}")
+          data = JSON.parse(resp_body)
           if response.status_code == 200 || data['success']
             finish.call(data, nil)
           else
             finish.call(nil, data['error'] || "Engine retornou erro #{response.status_code}.")
           end
         rescue StandardError => error
+          ArchVizAI.log("POST ERROR\nclass=#{error.class}\nmessage=#{error.message}\nbacktrace=\n#{error.backtrace ? error.backtrace.first(10).join("\n") : 'none'}")
           finish.call(nil, error.message)
         end
       end
+      ArchVizAI.log("POST: request.start returned=#{started}")
       finish.call(nil, 'Falha ao iniciar envio.') unless started
     rescue StandardError => error
+      ArchVizAI.log("POST ERROR\nclass=#{error.class}\nmessage=#{error.message}\nbacktrace=\n#{error.backtrace ? error.backtrace.first(10).join("\n") : 'none'}")
       if defined?(finish) && finish
         finish.call(nil, error.message)
       else

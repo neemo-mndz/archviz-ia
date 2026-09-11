@@ -69,7 +69,7 @@ export async function createJob(
   baseImageBuffer: Buffer,
   prompt: string,
   settings: RenderConfig,
-  context?: { origin: RenderOrigin; scene?: SketchUpScene }
+  context?: { origin: RenderOrigin; scene?: SketchUpScene; geometryBuffer?: Buffer; solidGeometryBuffer?: Buffer }
 ): Promise<Job> {
   await initJobManager();
 
@@ -99,6 +99,8 @@ export async function createJob(
     createdAt: new Date().toISOString(),
     source: 'base.png',
     origin: context?.origin ?? 'web',
+    ...(context?.geometryBuffer ? { geometrySource: 'geometry.png' as const } : {}),
+    ...(context?.solidGeometryBuffer ? { solidGeometrySource: 'solid_geometry.png' as const } : {}),
     ...(context?.scene ? { sceneFile: 'scene.json' as const } : {}),
     output: 'render.png',
     settings,
@@ -111,6 +113,12 @@ export async function createJob(
   try {
     // Write base.png
     await fs.writeFile(path.join(jobDir, 'base.png'), baseImageBuffer);
+    if (context?.geometryBuffer) {
+      await fs.writeFile(path.join(jobDir, 'geometry.png'), context.geometryBuffer);
+    }
+    if (context?.solidGeometryBuffer) {
+      await fs.writeFile(path.join(jobDir, 'solid_geometry.png'), context.solidGeometryBuffer);
+    }
   
     // Write prompt.md
     await fs.writeFile(path.join(jobDir, 'prompt.md'), prompt, 'utf-8');

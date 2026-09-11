@@ -16,9 +16,9 @@ export async function readRenderForm(request: Request): Promise<FormData> {
       const { value, done } = await reader.read();
       if (done) break;
       length += value.byteLength;
-      if (length > 22 * 1024 * 1024) {
+      if (length > 62 * 1024 * 1024) {
         await reader.cancel();
-        throw new RenderInputError('Upload excede 22 MiB.', 413);
+        throw new RenderInputError('Upload excede 62 MiB.', 413);
       }
       chunks.push(value);
     }
@@ -67,5 +67,24 @@ export async function parseRenderInput(form: FormData) {
     if (dimensions.width * dimensions.height > 16_000_000) throw new RenderInputError('Imagem excede 16 milhões de pixels.', 413);
     if (scene && (scene.viewport.width !== dimensions.width || scene.viewport.height !== dimensions.height)) throw new RenderInputError('Viewport e imagem têm dimensões diferentes.');
   }
-  return { buffer, config, origin: origin as RenderOrigin, scene };
+  const readSketchUpReference = async (key: string): Promise<Buffer | undefined> => {
+    const file = form.get(key);
+    if (file === null) return undefined;
+    if (origin !== 'sketchup') throw new RenderInputError('geometry.png requer origin=sketchup.');
+    if (typeof file === 'string') throw new RenderInputError(`${key} invalido.`);
+    if (file.size > 20 * 1024 * 1024) throw new RenderInputError(`${key} excede o limite permitido.`, 413);
+    const referenceBuffer = Buffer.from(await file.arrayBuffer());
+    let referenceDimensions;
+    try { referenceDimensions = sizeOf(referenceBuffer); } catch { throw new RenderInputError(`${key} invalido.`); }
+    if (referenceDimensions.type !== 'png') throw new RenderInputError(`Formato de ${key} invalido.`);
+    if (referenceDimensions.width !== dimensions.width || referenceDimensions.height !== dimensions.height) {
+      throw new RenderInputError(`${key} e scene.png tem dimensoes diferentes.`);
+    }
+    return referenceBuffer;
+  };
+
+  const geometryBuffer = await readSketchUpReference('geometry');
+  const solidGeometryBuffer = await readSketchUpReference('solidGeometry');
+
+  return { buffer, geometryBuffer, solidGeometryBuffer, config, origin: origin as RenderOrigin, scene };
 }

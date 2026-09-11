@@ -1,6 +1,14 @@
 /* global sketchup */
 (() => {
   'use strict';
+  console.log('[ArchVizAI] app.js started');
+  if (typeof sketchup !== 'undefined' && sketchup.js_stage) sketchup.js_stage('app.js started');
+  window.onerror = function(msg, url, line, col, error) {
+    sketchup.log_js_error(`Global Error: ${msg} at ${url}:${line}:${col}`);
+  };
+  window.onunhandledrejection = function(event) {
+    sketchup.log_js_error(`Unhandled Promise: ${event.reason}`);
+  };
   const $ = id => document.getElementById(id);
   const labels = {
     lighting: 'ILUMINAÇÃO', weather: 'CLIMA', people: 'PESSOAS', vehicles: 'VEÍCULOS',
@@ -22,22 +30,43 @@
     result.hidden = true;
     $('render-result').hidden = true;
     preview.removeAttribute('src');
+    $('geometry-preview').removeAttribute('src');
+    $('geometry-preview').hidden = false;
+    $('geometry-missing').hidden = true;
+    $('solid-preview').removeAttribute('src');
+    $('solid-preview').hidden = false;
+    $('solid-missing').hidden = true;
     $('render-preview').removeAttribute('src');
     message.textContent = '';
     sketchup.invalidate_payload();
   }
 
   function scene(data) {
-    $('scene-name').textContent = data.scene.name || 'Vista atual';
-    viewport.textContent = `${data.viewport.width} × ${data.viewport.height}`;
+    $('scene-name').textContent = (data.scene && data.scene.name) || 'Vista atual';
+    viewport.textContent = `${data.viewport.width} x ${data.viewport.height}`;
     materials.textContent = data.model.materialCount;
     objects.textContent = data.model.objectCount;
     partial.textContent = (data.materials.length < data.model.materialCount || data.objects.length < data.model.objectCount)
-      ? `Resumo limitado a ${data.materials.length} materiais e ${data.objects.length} objetos de primeiro nível.` : '';
+      ? `Resumo limitado a ${data.materials.length} materiais e ${data.objects.length} objetos de primeiro nivel.` : '';
+  }
+
+  function optionalPreview(imageId, missingId, dataUrl) {
+    const image = $(imageId);
+    const missing = $(missingId);
+    if (dataUrl) {
+      image.src = dataUrl;
+      image.hidden = false;
+      missing.hidden = true;
+    } else {
+      image.removeAttribute('src');
+      image.hidden = true;
+      missing.hidden = false;
+    }
   }
 
   window.ArchVizAI = {
     receive({ event, data }) {
+      console.log('[ArchVizAI] event received', event, data);
       if (event === 'connecting') {
         online = false; catalog = null;
         health.textContent = 'Conectando ao ArchViz Engine…';
@@ -78,10 +107,17 @@
       } else if (event === 'captured') {
         busy = false; scene(data.scene);
         preview.src = data.image;
+        optionalPreview('geometry-preview', 'geometry-missing', data.geometryImage);
+        optionalPreview('solid-preview', 'solid-missing', data.solidGeometryImage);
         result.hidden = false;
         $('render-result').hidden = true;
         const summary = data.scene;
-        $('payload-summary').textContent = `Payload pronto para renderização. Imagem: ${summary.viewport.width} × ${summary.viewport.height}. Cena: ${summary.model.entityCount}. Materiais: ${summary.model.materialCount}. Objetos: ${summary.model.objectCount}. Origin: sketchup.`;
+        const sceneName = (summary.scene && summary.scene.name) || 'Vista atual';
+        const facts = summary.geometryFacts || {};
+        const faceText = Number.isFinite(facts.surfaceCount)
+          ? ` Faces analisadas: ${facts.surfaceCount}. Com inner loops: ${facts.surfacesWithInnerLoops || 0}.`
+          : '';
+        $('payload-summary').textContent = `Payload pronto para renderizacao. Imagem: ${summary.viewport.width} x ${summary.viewport.height}. Cena: ${sceneName}. Materiais: ${summary.model.materialCount}. Objetos: ${summary.model.objectCount}.${faceText} Origin: sketchup.`;
         message.textContent = 'Cena capturada com sucesso.';
       } else if (event === 'error') {
         busy = false; message.textContent = data;
@@ -89,7 +125,7 @@
         message.textContent = data.message;
       } else if (event === 'render_error') {
         busy = false;
-        message.textContent = Erro no render: ;
+        message.textContent = `Erro no render: ${data}`;
       } else if (event === 'render_complete') {
         busy = false;
         message.textContent = 'Renderização concluída.';
@@ -102,6 +138,9 @@
       enable();
     }
   };
+  console.log('[ArchVizAI] app.js: window.ArchVizAI created');
+  if (typeof sketchup !== 'undefined' && sketchup.js_stage) sketchup.js_stage('window.ArchVizAI created');
+
   retry.addEventListener('click', () => sketchup.retry_engine());
   refresh.addEventListener('click', () => { invalidate(); sketchup.refresh_scene(); });
   notes.addEventListener('input', invalidate);
@@ -130,5 +169,7 @@
     if (lastBase64Render) sketchup.open_image(lastBase64Render);
   });
 
+  console.log('[ArchVizAI] app.js: calling sketchup.ready()');
+  if (typeof sketchup !== 'undefined' && sketchup.js_stage) sketchup.js_stage('calling sketchup.ready()');
   sketchup.ready();
 })();

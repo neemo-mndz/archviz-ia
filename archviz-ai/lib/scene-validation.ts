@@ -78,6 +78,33 @@ export function parseSketchUpScene(text: string): SketchUpScene {
       tag: name(item.tag, 'object.tag'), hidden: bool(item.hidden, 'object.hidden'),
     };
   });
+  let geometryFacts: SketchUpScene['geometryFacts'];
+  if (root.geometryFacts !== undefined) {
+    const facts = record(root.geometryFacts, 'geometryFacts');
+    const surfaces = array(facts.surfaces, 'geometryFacts.surfaces', 200).map((value): NonNullable<SketchUpScene['geometryFacts']>['surfaces'][number] => {
+      const item = record(value, 'geometryFacts.surface');
+      const output: NonNullable<SketchUpScene['geometryFacts']>['surfaces'][number] = {
+        id: name(item.id, 'geometryFacts.surface.id'),
+        scope: name(item.scope, 'geometryFacts.surface.scope'),
+        area: number(item.area, 'geometryFacts.surface.area', 0),
+        normal: vector(item.normal, 'geometryFacts.surface.normal'),
+        loopCount: integer(item.loopCount, 'geometryFacts.surface.loopCount', 1, 100000),
+        innerLoopCount: integer(item.innerLoopCount, 'geometryFacts.surface.innerLoopCount', 0, 100000),
+      };
+      if (item.ownerName !== undefined) output.ownerName = name(item.ownerName, 'geometryFacts.surface.ownerName');
+      if (item.tag !== undefined) output.tag = name(item.tag, 'geometryFacts.surface.tag');
+      return output;
+    });
+    geometryFacts = {
+      surfaceCount: integer(facts.surfaceCount, 'geometryFacts.surfaceCount', 0, 1000000),
+      reportedSurfaceCount: integer(facts.reportedSurfaceCount, 'geometryFacts.reportedSurfaceCount', 0, 200),
+      surfacesWithInnerLoops: integer(facts.surfacesWithInnerLoops, 'geometryFacts.surfacesWithInnerLoops', 0, 1000000),
+      continuousSurfaces: integer(facts.continuousSurfaces, 'geometryFacts.continuousSurfaces', 0, 1000000),
+      collectionLimit: integer(facts.collectionLimit, 'geometryFacts.collectionLimit', 1, 200),
+      strategy: name(facts.strategy, 'geometryFacts.strategy'),
+      surfaces,
+    };
+  }
   const materialCount = integer(model.materialCount, 'model.materialCount');
   const objectCount = integer(model.objectCount, 'model.objectCount');
   if (materialCount < materials.length || objectCount < objects.length) return fail('model counts');
@@ -91,5 +118,6 @@ export function parseSketchUpScene(text: string): SketchUpScene {
     },
     scene: { name: scene.name === null ? null : name(scene.name, 'scene.name') },
     model: { name: name(model.name, 'model.name'), materialCount, objectCount }, materials, objects,
+    ...(geometryFacts ? { geometryFacts } : {}),
   };
 }

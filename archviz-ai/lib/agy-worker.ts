@@ -112,7 +112,7 @@ export function startAgyWorker(jobId: string, pendingJobDir: string) {
   logToWorker(jobId, `Starting worker for jobId: ${jobId}`, processingDir);
   logToWorker(jobId, `Job moved to processing dir: ${processingDir}`, processingDir);
 
-  const instruction = `You are the ArchViz worker. Go to the directory: ${processingDir.replace(/\\/g, '/')}. Read the file 'prompt.md' and edit 'base.png' exactly as instructed. Save the resulting image EXACTLY as 'render.png' in the same directory. DO NOT modify 'job.json'. DO NOT move the directory. Just generate and save 'render.png' and exit.`;
+  const instruction = `You are the ArchViz worker. Go to the directory: ${processingDir.replace(/\\/g, '/')}. Read the file 'prompt.md'. Edit 'base.png' exactly as instructed. If 'solid_geometry.png' exists, use it as the highest-priority geometry reference for occupied/empty space, massing and silhouettes. If 'geometry.png' exists, use it as the edge/contour geometry reference for openings, boundaries and element placement. Use 'base.png' for visual appearance, materials, color impression and context. Save the resulting image EXACTLY as 'render.png' in the same directory. DO NOT modify 'job.json'. DO NOT move the directory. Just generate and save 'render.png' and exit.`;
 
   logToWorker(jobId, `Resolved agy path: ${agyPath}`, processingDir);
 

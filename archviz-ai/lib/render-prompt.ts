@@ -11,7 +11,15 @@ YOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHIT
 
   // --- GEOMETRY & ARCHITECTURE LOCK ---
   prompt += `<GEOMETRY_LOCK>\n`;
-  prompt += `The supplied base image is the single authoritative source of truth.\n`;
+  if (scene) {
+    prompt += `SOURCE PRIORITY\n`;
+    prompt += `1. SOLID GEOMETRY REFERENCE (solid_geometry.png): authoritative for occupied space, empty space, overall massing and silhouettes.\n`;
+    prompt += `2. EDGE GEOMETRY REFERENCE (geometry.png): authoritative for contours, boundaries, visible openings and element placement.\n`;
+    prompt += `3. VISUAL REFERENCE (base.png): authoritative only for appearance, colors, material impression and context.\n`;
+    prompt += `When references disagree, preserve geometry from solid_geometry.png first, then geometry.png, then visual appearance from base.png.\n`;
+  } else {
+    prompt += `The supplied base image is the single authoritative source of truth.\n`;
+  }
   prompt += `PRESERVE EXACTLY:\n`;
   prompt += `- Camera position, viewpoint, and perspective\n`;
   prompt += `- Building geometry, volumetry, and facade proportions\n`;
@@ -57,6 +65,10 @@ YOUR JOB IS TO ENHANCE THE RENDER QUALITY WHILE ABSOLUTELY PRESERVING THE ARCHIT
   prompt += `<NEGATIVE_PROMPT>\n`;
   prompt += `DO NOT add dirt, stains, damage, artificial aging, excessive weathering, or wet pavement unless explicitly requested.\n`;
   prompt += `DO NOT redesign the architecture or invent new shapes.\n`;
+  if (scene) {
+    prompt += `NO GEOMETRIC INVENTION. Do not infer missing architectural program. If an architectural or site element is absent from the geometry references, do not create it.\n`;
+    prompt += `Do not add windows, doors, openings, curtain walls, guardhouses, parking stalls, fences, walls, posts, canopies, extra floors, ramps, or roads.\n`;
+  }
   prompt += `DO NOT change the time of day if it conflicts with the Lighting Condition.\n`;
   prompt += `</NEGATIVE_PROMPT>\n`;
 

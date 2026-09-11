@@ -23,6 +23,8 @@ module ArchVizAI
       @dialog.add_action_callback('log_scene') { |_context| log_scene }
       @dialog.add_action_callback('save_image') { |_context, base64| save_image(base64) }
       @dialog.add_action_callback('open_image') { |_context, base64| open_image(base64) }
+      @dialog.add_action_callback('log_js_error') { |_context, message| ArchVizAI.log("JS ERROR: #{message}") }
+      @dialog.add_action_callback('js_stage') { |_context, message| ArchVizAI.log("JS STAGE: #{message}") }
       @dialog.set_on_closed do
         stop_polling
         @client&.close
@@ -38,10 +40,20 @@ module ArchVizAI
     end
 
     def emit(event, data)
+      ArchVizAI.log("Emit: event=#{event}")
+      if event == 'render_error'
+        msg = data.is_a?(String) ? data : data.to_s
+        msg = "#{msg[0...500]}..." if msg.length > 500
+        ArchVizAI.log("Emit render_error: #{msg}")
+      end
       return unless @dialog
 
       json = JSON.generate({ event: event, data: data }).gsub('<', '\u003c').gsub('>', '\u003e')
-      @dialog.execute_script("window.ArchVizAI.receive(#{json})")
+      begin
+        @dialog.execute_script("window.ArchVizAI.receive(#{json})")
+      rescue StandardError => e
+        ArchVizAI.log("Emit execute_script ERROR: #{e.message}")
+      end
     end
 
     def refresh_scene
@@ -51,8 +63,10 @@ module ArchVizAI
     end
 
     def connect
+      ArchVizAI.log("Dialog: connect START")
       @generation = (@generation || 0) + 1
       generation = @generation
+      ArchVizAI.log("Dialog: generation=#{generation}")
       stop_polling
       @client&.close
       @catalog = nil
@@ -60,29 +74,51 @@ module ArchVizAI
       @job_id = nil
       emit('connecting', {})
       @client = ApiClient.new
+      ArchVizAI.log("Dialog: client created")
       @client.get(:health) do |data, error|
-        next unless generation == @generation && @dialog
+        ArchVizAI.log("Dialog: health callback")
+        if generation != @generation
+          ArchVizAI.log("Dialog: callback discarded, reason=generation mismatch")
+          next
+        end
+        unless @dialog
+          ArchVizAI.log("Dialog: callback discarded, reason=dialog missing")
+          next
+        end
 
         online = !data.nil?
         ArchVizAI.log(online ? 'engine online' : 'engine offline')
+        ArchVizAI.log("Dialog: emitting health")
         emit('health', { online: online, error: error })
       end
       @client.get(:options) do |data, error|
-        next unless generation == @generation && @dialog
+        ArchVizAI.log("Dialog: options callback")
+        if generation != @generation
+          ArchVizAI.log("Dialog: callback discarded, reason=generation mismatch")
+          next
+        end
+        unless @dialog
+          ArchVizAI.log("Dialog: callback discarded, reason=dialog missing")
+          next
+        end
 
         if error
           emit('catalog_error', error)
           next
         end
         begin
+          ArchVizAI.log("Dialog: validating catalog")
           validate_catalog(data)
           @catalog = data
+          ArchVizAI.log("Dialog: emitting catalog")
           emit('catalog', data)
         rescue StandardError => problem
           emit('catalog_error', problem.message)
         end
       end
+      ArchVizAI.log("Dialog: connect END")
     rescue StandardError => error
+      ArchVizAI.log("Dialog ERROR\nclass=#{error.class}\nmessage=#{error.message}\nbacktrace=\n#{error.backtrace.first(10).join("\n")}")
       emit('health', { online: false, error: error.message })
     end
 
@@ -117,11 +153,24 @@ module ArchVizAI
 
       fields['additionalInstructions'] = notes
       capture = SceneCapture.capture
+      scene_json = JSON.generate(capture[:scene])
+      ArchVizAI.log("capture scene JSON bytesize=#{scene_json.bytesize}")
       @last_payload = {
         image: { bytes: capture[:image], filename: 'scene.png', content_type: 'image/png' },
-        fields: fields.merge('origin' => 'sketchup', 'scene' => JSON.generate(capture[:scene]))
+        geometry: { bytes: capture[:geometry_image], filename: 'geometry.png', content_type: 'image/png' },
+        solid_geometry: { bytes: capture[:solid_geometry_image], filename: 'solid_geometry.png', content_type: 'image/png' },
+        fields: fields.merge('origin' => 'sketchup', 'scene' => scene_json)
       }
-      emit('captured', { scene: capture[:scene], image: "data:image/png;base64,#{Base64.strict_encode64(capture[:image])}", bytes: capture[:image].bytesize })
+      emit('captured', {
+        scene: capture[:scene],
+        image: "data:image/png;base64,#{Base64.strict_encode64(capture[:image])}",
+        geometryImage: "data:image/png;base64,#{Base64.strict_encode64(capture[:geometry_image])}",
+        solidGeometryImage: "data:image/png;base64,#{Base64.strict_encode64(capture[:solid_geometry_image])}",
+        bytes: capture[:image].bytesize,
+        geometryBytes: capture[:geometry_image].bytesize,
+        solidGeometryBytes: capture[:solid_geometry_image].bytesize,
+        validation: capture[:validation]
+      })
     rescue StandardError => error
       emit('error', error.message)
     end
@@ -205,6 +254,7 @@ module ArchVizAI
       return unless @last_payload
 
       json = @last_payload[:fields]['scene']
+      ArchVizAI.log("scene JSON bytesize=#{json.bytesize}")
       if json.bytesize <= 12_000
         ArchVizAI.log("scene JSON: #{json}")
       else
