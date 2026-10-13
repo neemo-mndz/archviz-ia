@@ -36,6 +36,8 @@ Sketchup.write_default('ArchVizAI', 'engine_url', 'http://127.0.0.1:3001')
 
 Clique **Tentar novamente**. Para voltar ao padrão, grave `http://127.0.0.1:3000` da mesma forma. São aceitos somente HTTP e os hosts `localhost`, `127.0.0.1` e `::1`; sem paths extras, usuário/senha, query ou fragmento. Para IPv6, use `http://[::1]:3000`.
 
+Se uma sessão de desenvolvimento deixou a porta 3001 persistida, reinicie o SketchUp após atualizar o Ruby e execute no Ruby Console `ArchVizAI::Config.reset_engine_url!`. Isso grava o padrão oficial 3000 sobre a preferência antiga. Confira `ArchVizAI::Config.engine_url` (deve retornar `"http://127.0.0.1:3000"`) e clique **Tentar novamente**. URLs configuradas explicitamente não são migradas automaticamente.
+
 As consultas são GET assíncronas via `Sketchup::Http::Request`, com timeout de 10 segundos e cancelamento no fechamento. HTML/JS não fazem fetch ao localhost. Health indica somente que o engine respondeu; não comprova autenticação/quota do Antigravity. Não há início automático do engine nesta fase; ele permanece uma evolução obrigatória pós-MVP.
 
 ## Uso

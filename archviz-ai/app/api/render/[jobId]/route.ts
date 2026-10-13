@@ -37,4 +37,4 @@ export async function GET(
     console.error('API Error:', error);
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
   }
-}
+} 
